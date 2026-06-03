@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국립중앙박물관 - National Museum of Korea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-util">
+    <div class="header-util__left">
+      <button class="util-btn util-btn--combined" id="combinedMenuBtn"
+              aria-label="검색 및 메뉴" onclick="toggleMegaMenu()">
+        <svg class="combined-icon--default" viewBox="0 0 56 46"
+             fill="none" stroke="currentColor" stroke-width="5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="6" y1="12" x2="20" y2="12"/>
+          <line x1="6" y1="23" x2="20" y2="23"/>
+          <line x1="6" y1="35" x2="25" y2="35"/>
+          <circle cx="38" cy="18" r="11"/>
+          <line x1="46" y1="26" x2="56" y2="36"/>
+        </svg>
+        <svg class="combined-icon--close" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" aria-hidden="true">
+          <line x1="4"  y1="4"  x2="20" y2="20"/>
+          <line x1="20" y1="4"  x2="4"  y2="20"/>
+        </svg>
+      </button>
+      <button class="util-btn util-btn--desktop-only" aria-label="검색" onclick="toggleSearch()">
+        <svg class="util-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="7"/>
+          <line x1="16" y1="16" x2="22" y2="22"/>
+        </svg>
+        <span>검색</span>
+        <svg class="util-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div class="lang-wrap util-btn--desktop-only">
+        <button class="util-btn" aria-label="언어 선택" onclick="toggleLang()">
+          <svg class="util-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span>한국어</span>
+          <svg class="util-arrow util-arrow--down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown" role="menu">
+          <a href="#" role="menuitem">한국어</a>
+          <a href="#" role="menuitem">English</a>
+          <a href="#" role="menuitem">日本語</a>
+          <a href="#" role="menuitem">中文</a>
+        </div>
+      </div>
+    </div>
+    <div class="header-util__center">
+      <a href="main.html" class="site-logo" aria-label="국립중앙박물관 홈으로">
+        <div class="site-logo__kr">국립중앙박물관</div>
+        <div class="site-logo__en">National Museum of Korea</div>
+      </a>
+    </div>
+    <div class="header-util__right">
+      <a href="#" class="util-btn util-shop" aria-label="뮤지엄샵 MU:DS">
+        <svg class="util-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="9" width="18" height="13" rx="2"/>
+          <path d="M8 9V7a4 4 0 0 1 8 0v2"/>
+        </svg>
+        <span>MU:DS</span>
+      </a>
+      <a href="#" class="util-btn util-ticket" aria-label="예매하기">
+        <svg class="util-icon" viewBox="0 0 26 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 1h17a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a3 3 0 0 0 0-6V3a2 2 0 0 1 2-2z" stroke-width="2.5"/>
+          <line x1="11" y1="5" x2="11" y2="13"/>
+          <line x1="14.5" y1="5" x2="14.5" y2="13"/>
+          <line x1="18" y1="5" x2="18" y2="13"/>
+          <line x1="21.5" y1="5" x2="21.5" y2="13"/>
+        </svg>
+        <span>예매하기</span>
+      </a>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="주요 메뉴">
+    <ul class="nav-list" role="menubar">
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">관람안내</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">전시 및 행사</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">박물관 이야기</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">교육</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">어린이 박물관</a></li>
+      <li class="nav-list__item nav-list__item--toggle" role="none">
+        <a href="#" id="menuToggle" role="menuitem" onclick="toggleMegaMenu(); return false;">더 보기 ☰</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="search-bar" id="searchBar">
+  <div class="search-bar__inner">
+    <input type="text" class="search-bar__input" placeholder="검색어를 입력하세요." />
+    <button class="search-bar__icon" aria-label="검색 실행">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="10.5" cy="10.5" r="7"/><line x1="16" y1="16" x2="22" y2="22"/>
+      </svg>
+    </button>
+  </div>
+  <button class="search-bar__close" onclick="closeSearch()" aria-label="검색 닫기">✕</button>
+</div>
+<div class="search-overlay" id="searchOverlay" onclick="closeSearch()"></div>
+
+<!-- ===== 전체메뉴 패널 ===== -->
+<div class="mega-menu" id="megaMenu" aria-hidden="true">
+  <div class="mega-menu__inner">
+    <div class="mega-menu__search-wrap">
+      <div class="mega-menu__search-inner">
+        <input type="text" class="mega-menu__search-input" placeholder="검색어를 입력하세요." />
+        <button class="mega-menu__search-btn" aria-label="검색 실행">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="10.5" cy="10.5" r="7"/><line x1="16" y1="16" x2="22" y2="22"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="mega-menu__main">
+      <div class="mega-menu__col">
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">관람 <span class="mega-menu__col-arrow">›</span></p>
+        <ul class="mega-menu__list">
+          <li><a href="#">관람안내</a></li><li><a href="#">전시해설 · 예약하기</a></li>
+          <li><a href="#">관람 · 편의시설</a></li><li><a href="#">접근성 안내</a></li><li><a href="#">오시는 길</a></li>
+        </ul>
+      </div>
+      <div class="mega-menu__col">
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">전시 · 소장품 <span class="mega-menu__col-arrow">›</span></p>
+        <ul class="mega-menu__list">
+          <li><a href="#">상설전시</a></li><li><a href="#">특별전시</a></li>
+          <li><a href="#">디지털 실감 영상관</a></li><li><a href="#">온라인 전시관</a></li><li><a href="#">소장품 검색</a></li>
+        </ul>
+      </div>
+      <div class="mega-menu__col">
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">교육 · 행사 <span class="mega-menu__col-arrow">›</span></p>
+        <ul class="mega-menu__list">
+          <li><a href="#">교육 프로그램</a></li><li><a href="#">전문교육</a></li>
+          <li><a href="#">공연 · 문화행사</a></li><li><a href="#">어린이 박물관</a></li>
+        </ul>
+      </div>
+      <div class="mega-menu__col">
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">박물관 안내 <span class="mega-menu__col-arrow">›</span></p>
+        <ul class="mega-menu__list">
+          <li><a href="#">박물관 소개</a></li><li><a href="#">박물관 소식</a></li>
+          <li><a href="#">공지사항</a></li><li><a href="#">학술행사</a></li>
+          <li><a href="#">정기간행물</a></li><li><a href="#">도서관</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header-spacer" aria-hidden="true"></div>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <!-- 섹션 1: 히어로 -->
+  <section class="hero" id="hero" aria-label="박물관 소개">
+    <div class="hero__video-wrap">
+      <video autoplay loop muted playsinline>
+        <source src="video/museum.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-overlay"></div>
+    </div>
+    <div class="hero__info">
+      <div class="hero__welcome">
+        <div class="hero__welcome-body">
+          <p class="hero__welcome-sub">NATIONAL MUSEUM OF KOREA</p>
+          <h1 class="hero__welcome-title">국립중앙박물관에 오신 것을 환영합니다.</h1>
+          <p class="hero__welcome-desc">인류의 역사와 한국의 문화유산을 한자리에서 만나보세요.<br>상설·특별전시부터 교육 프로그램까지, 모든 방문객을 위한 공간입니다.</p>
+        </div>
+        <a href="#visitInfo" class="hero__welcome-btn">관람 안내 바로가기 &nbsp;→</a>
+      </div>
+      <div class="hero__divider" aria-hidden="true"></div>
+      <div class="hero__right">
+        <div class="hero__tabs">
+          <button class="hero__tab active" onclick="switchHeroTab(this, 'heroHours')">관람시간</button>
+          <button class="hero__tab" onclick="switchHeroTab(this, 'heroAccess')">오시는 길</button>
+        </div>
+        <div class="hero__hours-wrap active" id="heroHours">
+          <a class="hero__info-label" href="#visitInfo" onclick="scrollToSection('visitInfo'); return false;">관람시간</a>
+          <div class="hero__hours-today">
+            <span class="hero__open-badge">오늘 운영중</span>
+            <span class="hero__hours-today-text">오늘(수) 09:30 ~ 21:00</span>
+          </div>
+          <ul class="hero__hours-list">
+            <li class="hero__hours-item"><span>월·화·목·금·일</span><span>09:30 ~ 17:30</span></li>
+            <li class="hero__hours-item"><span>수·토</span><span>09:30 ~ 21:00</span></li>
+            <li class="hero__hours-item"><span>휴관일</span><span>1월 1일, 설날, 추석 당일</span></li>
+          </ul>
+        </div>
+        <div class="hero__section-divider"></div>
+        <div class="hero__access" id="heroAccess">
+          <a class="hero__info-label" href="#accessSection" onclick="scrollToSection('accessSection'); return false;">오시는 길</a>
+          <ul class="hero__access-list">
+            <li class="hero__access-item">
+              <span class="hero__access-label">위치</span>
+              <span class="hero__access-text">04383 서울시 용산구 서빙고로 137<br>(용산동6가 168-6)</span>
+            </li>
+            <li class="hero__access-item">
+              <span class="hero__access-label">전화</span>
+              <span class="hero__access-text">02) 2077-9000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 섹션 2: 하이라이트 -->
+  <section class="highlights fade-in" id="highlights" aria-label="하이라이트">
+    <div class="section-header">
+      <div>
+        <p class="section-subtitle">HIGHLIGHTS</p>
+        <h2 class="section-title">하이라이트</h2>
+      </div>
+    </div>
+    <div class="highlights__grid">
+      <article class="highlight-card highlight-card--big"><div class="highlight-card__img"><img src="img/highlight-01-maitreya.png" alt="금동미륵보살반가사유상"></div><div class="highlight-card__body"><span class="highlight-card__badge">국보</span><h3 class="highlight-card__name">금동미륵보살반가사유상</h3><p class="highlight-card__desc">영원한 사유의 순간, 미소 속에 깃든 천 년의 침묵</p></div></article>
+      <article class="highlight-card"><div class="highlight-card__img"><img src="img/highlight-02-gold-crown.jpg" alt="금관총 금관 및 금제 관식"></div><div class="highlight-card__body"><span class="highlight-card__badge">국보</span><h3 class="highlight-card__name">금관총 금관 및 금제 관식</h3><p class="highlight-card__desc">신라 왕족의 영화, 황금빛으로 되살아나다</p></div></article>
+      <article class="highlight-card"><div class="highlight-card__img"><img src="img/highlight-03-celadon-incense.jpg" alt="청자 투각 칠보문 뚜껑 향로"></div><div class="highlight-card__body"><span class="highlight-card__badge">국보</span><h3 class="highlight-card__name">청자 투각 칠보문 뚜껑 향로</h3><p class="highlight-card__desc">천 년을 버텨온 고려 비색의 아름다움</p></div></article>
+      <article class="highlight-card"><div class="highlight-card__img"><img src="img/highlight-04-moon-jar.jpg" alt="백자달항아리"></div><div class="highlight-card__body"><span class="highlight-card__badge">보물</span><h3 class="highlight-card__name">백자달항아리</h3><p class="highlight-card__desc">넉넉한 여백 속에 담긴 조선의 미학</p></div></article>
+      <article class="highlight-card highlight-card--wide"><div class="highlight-card__img"><img src="img/highlight-05-horse-rider.jpg" alt="도기 기마인물형 명기"></div><div class="highlight-card__body"><span class="highlight-card__badge">국보</span><h3 class="highlight-card__name">도기 기마인물형 명기</h3><p class="highlight-card__desc">천오백 년 전 신라인이 빚어낸, 달리는 말 위의 이야기</p></div></article>
+      <article class="highlight-card"><div class="highlight-card__img"><img src="img/highlight-06-gwaneum.jpg" alt="수월관음도"></div><div class="highlight-card__body"><span class="highlight-card__badge">고려불화</span><h3 class="highlight-card__name">수월관음도</h3><p class="highlight-card__desc">물 위에 드리운 자비, 고려 불화의 절정</p></div></article>
+      <article class="highlight-card"><div class="highlight-card__img"><img src="img/highlight-07-iron-buddha.jpg" alt="하남 하사창동 철조석가여래좌상"></div><div class="highlight-card__body"><span class="highlight-card__badge">보물</span><h3 class="highlight-card__name">하남 하사창동 철조석가여래좌상</h3><p class="highlight-card__desc">철의 무게로 새긴 고요한 깨달음</p></div></article>
+      <article class="highlight-card"><div class="highlight-card__img"><img src="img/highlight-08-bronze-ewer.jpg" alt="청동 은입사 포류수금문 정병"></div><div class="highlight-card__body"><span class="highlight-card__badge">국보</span><h3 class="highlight-card__name">청동 은입사 포류수금문 정병</h3><p class="highlight-card__desc">은빛 선율로 새긴 고려 장인의 숨결</p></div></article>
+    </div>
+    <div class="highlights__cta">
+      <a href="#" class="highlights__cta-btn">더 많은 정보를 확인하세요</a>
+    </div>
+  </section>
+
+
+  <!-- ===== 섹션 3: 전시 및 행사 ===== -->
+  <section class="exhibition fade-in" id="exhibition" aria-label="전시 및 행사">
+    <div class="section-header">
+      <div>
+        <p class="section-subtitle">EXHIBITION &amp; EVENTS</p>
+        <h2 class="section-title">전시 및 행사</h2>
+      </div>
+      <a href="#" class="section-more">모든 전시 및 행사 확인하기 →</a>
+    </div>
+    <div class="exhibition__tabs" role="tablist">
+      <button class="exhibition__tab active" role="tab" onclick="switchExhibitionTab(this, 'special')">특별전시</button>
+      <button class="exhibition__tab" role="tab" onclick="switchExhibitionTab(this, 'permanent')">상설전시</button>
+    </div>
+    <div class="exhi-slider" id="exhiSlider">
+      <div class="exhi-slider__stage">
+        <button class="exhi-slider__btn exhi-slider__btn--prev" onclick="moveSlide(-1)" aria-label="이전 전시">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="exhi-slider__img-wrap">
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/exhibition-01-kimhongdo-mobile.png">
+            <img class="exhi-slider__img active" data-type="special" src="img/exhibition-01-kimhongdo.jpg" alt="단원 김홍도, 시대를 그리다">
+          </picture>
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/exhibition-02-bongjeongsa-mobile.png">
+            <img class="exhi-slider__img" data-type="special" src="img/exhibition-02-bongjeongsa.jpg" alt="안동 봉정사 괘불">
+          </picture>
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/exhibition-03-beauty-mobile.png">
+            <img class="exhi-slider__img" data-type="permanent" src="img/exhibition-03-beauty.jpg" alt="아름다움을 나누는 마음">
+          </picture>
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/exhibition-06-seohwagwan-mobile.jpg">
+            <img class="exhi-slider__img" data-type="permanent" src="img/exhibition-06-seohwagwan.jpg" alt="서화관 상설전시">
+          </picture>
+          <div class="exhi-slider__dots" id="exhiDots"></div>
+        </div>
+        <button class="exhi-slider__btn exhi-slider__btn--next" onclick="moveSlide(1)" aria-label="다음 전시">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="exhi-slide-text active" data-type="special">
+        <span class="exhi-slide__tag">특별전시</span>
+        <h3 class="exhi-slide__title">단원 김홍도, 시대를 그리다</h3>
+        <p class="exhi-slide__place">상설전시관 서화실 회화 2실</p>
+        <p class="exhi-slide__date">2026. 05. 04 — 2026. 08. 02</p>
+        <p class="exhi-slide__desc">김홍도의 예술 세계를 집약적으로 조명하는 전시. 단원풍속도첩을 비롯한 대표작들을 한자리에서 만나보세요.</p>
+        <a href="#" class="exhi-slide__link">자세히 보기 →</a>
+      </div>
+      <div class="exhi-slide-text" data-type="special">
+        <span class="exhi-slide__tag">특별전시</span>
+        <h3 class="exhi-slide__title">깨달음으로 이끄는 부처, 안동 봉정사 괘불</h3>
+        <p class="exhi-slide__place">서화관 2층 불교회화실</p>
+        <p class="exhi-slide__date">2026. 04. 07 — 2026. 06. 21</p>
+        <p class="exhi-slide__desc">국립중앙박물관이 개최하는 스무 번째 괘불전. 보물 안동 봉정사 괘불과 괘불함을 특별 공개합니다.</p>
+        <a href="#" class="exhi-slide__link">자세히 보기 →</a>
+      </div>
+      <div class="exhi-slide-text" data-type="permanent">
+        <span class="exhi-slide__tag">기증유물전</span>
+        <h3 class="exhi-slide__title">아름다움을 나누는 마음</h3>
+        <p class="exhi-slide__place">상설전시관 기증 4실</p>
+        <p class="exhi-slide__date">2026. 04. 20 — 2026. 07. 19</p>
+        <p class="exhi-slide__desc">박물관에 새롭게 들어온 최신 기증 문화유산을 특별 공개. 이한철의 이유원 초상 등 9건을 선보입니다.</p>
+        <a href="#" class="exhi-slide__link">자세히 보기 →</a>
+      </div>
+      <div class="exhi-slide-text" data-type="permanent">
+        <span class="exhi-slide__tag">상설전시</span>
+        <h3 class="exhi-slide__title">서화관 — 한국 전통 미술의 정수</h3>
+        <p class="exhi-slide__place">서화관 북쪽 전시공간</p>
+        <p class="exhi-slide__date">상시 운영</p>
+        <p class="exhi-slide__desc">외규장각 의궤를 비롯해 각 시기의 특징을 잘 대변하는 명품을 서화, 불교회화, 목칠공예 주제에 따라 전시하여 수준 높은 우리 전통 미술을 일목요연하게 감상할 수 있습니다.</p>
+        <a href="#" class="exhi-slide__link">자세히 보기 →</a>
+      </div>
+    </div>
+    <div class="exhi-events-header">
+      <span class="exhi-events-label">행사 · 이벤트</span>
+    </div>
+    <div class="exhi-events">
+      <article class="exhi-event-card">
+        <div class="exhi-event-card__img">
+          <img src="img/exhibition-04-kakao.png" alt="카카오프렌즈와 국중박에서 보물찾기 이벤트">
+          <div class="exhi-event-card__overlay" aria-hidden="true"></div>
+        </div>
+        <div class="exhi-event-card__body">
+          <span class="exhi-event-card__tag">행사 · 이벤트</span>
+          <h3 class="exhi-event-card__title">카카오프렌즈와 국중박에서 보물찾기 하는 법</h3>
+          <p class="exhi-event-card__place">전시관 QR 스탬프 투어</p>
+          <p class="exhi-event-card__date">2026. 05. 02 — 2026. 05. 31</p>
+          <a href="#" class="exhi-event-card__link">자세히 보기 →</a>
+        </div>
+      </article>
+      <article class="exhi-event-card">
+        <div class="exhi-event-card__img">
+          <img src="img/exhibition-05-archive.jpg" alt="아카이브, 박물관의 시간">
+          <div class="exhi-event-card__overlay" aria-hidden="true"></div>
+        </div>
+        <div class="exhi-event-card__body">
+          <span class="exhi-event-card__tag">아카이브 전시</span>
+          <h3 class="exhi-event-card__title">아카이브, 박물관의 시간</h3>
+          <p class="exhi-event-card__place">선사고대관 휴게공간</p>
+          <p class="exhi-event-card__date">2026. 03. 31 — 2026. 06. 14</p>
+          <a href="#" class="exhi-event-card__link">자세히 보기 →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ===== 섹션 4: 관람코스 추천 ===== -->
+  <section class="course fade-in" id="course" aria-label="관람코스 추천">
+    <div>
+      <p class="section-subtitle" style="color:#555;">RECOMMENDED COURSE</p>
+      <h2 class="section-title">관람코스 추천</h2>
+    </div>
+    <ul class="course__grid" role="list">
+
+      <!-- Course 01 -->
+      <li class="course-card" role="listitem">
+        <div class="course-card__num">01</div>
+        <p class="course-card__tag">COURSE 01</p>
+        <h3 class="course-card__title">대표 유물 코스</h3>
+        <p class="course-card__desc">처음 방문하는 분들을 위한 핵심 명품 중심 코스</p>
+        <ul class="course-card__steps">
+          <li class="course-card__step">
+            <span class="course-card__step-badge">1F · 108</span>
+            <span class="course-card__step-name">금관과 금허리띠</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">1F · 103</span>
+            <span class="course-card__step-name">농경문 청동기</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">2F · 209</span>
+            <span class="course-card__step-name">반가사유상</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">3F · 303</span>
+            <span class="course-card__step-name">청자 칠보무늬 향로</span>
+          </li>
+        </ul>
+        <div class="course-card__time"><span>⏱</span><span>소요시간 약 1시간</span></div>
+      </li>
+
+      <!-- Course 02 -->
+      <li class="course-card" role="listitem">
+        <div class="course-card__num">02</div>
+        <p class="course-card__tag">COURSE 02</p>
+        <h3 class="course-card__title">사유와 휴식 코스</h3>
+        <p class="course-card__desc">반가사유상을 중심으로 마음을 쉬어가는 감성 코스</p>
+        <ul class="course-card__steps">
+          <li class="course-card__step">
+            <span class="course-card__step-badge">3F · 209</span>
+            <span class="course-card__step-name">사유의 방 · 반가사유상</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">2F · 203</span>
+            <span class="course-card__step-name">불교회화실 · 괘불</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">2F · 201</span>
+            <span class="course-card__step-name">외규장각 의궤</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">야외</span>
+            <span class="course-card__step-name">청자정 · 거울못 산책</span>
+          </li>
+        </ul>
+        <div class="course-card__time"><span>⏱</span><span>소요시간 약 1시간</span></div>
+      </li>
+
+      <!-- Course 03 -->
+      <li class="course-card" role="listitem">
+        <div class="course-card__num">03</div>
+        <p class="course-card__tag">COURSE 03</p>
+        <h3 class="course-card__title">심화 관람 코스</h3>
+        <p class="course-card__desc">선사시대부터 조선까지 역사의 흐름을 따라가는 코스</p>
+        <ul class="course-card__steps">
+          <li class="course-card__step">
+            <span class="course-card__step-badge">1F · 102</span>
+            <span class="course-card__step-name">빗살무늬토기</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">1F · 108</span>
+            <span class="course-card__step-name">금관과 금허리띠</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">1F · 119</span>
+            <span class="course-card__step-name">대동여지도</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">2F · 209</span>
+            <span class="course-card__step-name">반가사유상</span>
+          </li>
+          <li class="course-card__step">
+            <span class="course-card__step-badge">3F · 305</span>
+            <span class="course-card__step-name">백자 달항아리</span>
+          </li>
+        </ul>
+        <div class="course-card__time"><span>⏱</span><span>소요시간 약 1시간 30분</span></div>
+      </li>
+
+    </ul>
+  </section>
+
+
+  <!-- ===== 섹션 5: 뮤지엄 굿즈 ===== -->
+  <section class="goods fade-in" id="goods" aria-label="뮤지엄 굿즈">
+    <div class="section-header">
+      <div>
+        <p class="section-subtitle">MU:DS BEST ITEMS</p>
+        <h2 class="section-title">베스트 아이템</h2>
+      </div>
+      <a href="https://www.museumshop.or.kr/kor/product/product_li.do?str_bcode=003000000"
+         class="section-more" target="_blank" rel="noopener">MU:DS 바로가기 →</a>
+    </div>
+    <div class="goods-slider">
+      <button class="goods-slider__btn" onclick="moveGoods(-1)" aria-label="이전 상품">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="goods-slider__viewport">
+        <ul class="goods-slider__track" id="goodsTrack">
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/bangasayusang-tou.jpg" alt="반가사유상 토우 시리즈"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">장식소품</p>
+              <p class="goods-card__name">반가사유상 토우 시리즈(곰곰 반가)</p>
+              <p class="goods-card__price">43,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--best">BEST</span><span class="goods-badge goods-badge--md">MD추천</span></div>
+            </div>
+          </li>
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/hyangro-miniature.jpg" alt="금동대향로 미니어처"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">미니어처</p>
+              <p class="goods-card__name">금동대향로 미니어처(단독 구매)</p>
+              <p class="goods-card__price">99,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--best">BEST</span><span class="goods-badge goods-badge--md">MD추천</span></div>
+            </div>
+          </li>
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/dancheong-keyboard.jpg" alt="단청 무선 블루투스 키보드"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">기타</p>
+              <p class="goods-card__name">단청 무선 블루투스 키보드(흰색)</p>
+              <p class="goods-card__price">145,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--new">NEW</span><span class="goods-badge goods-badge--best">BEST</span><span class="goods-badge goods-badge--md">MD추천</span></div>
+            </div>
+          </li>
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/myeongtae-object.jpg" alt="명태 오브제"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">자석/책갈피</p>
+              <p class="goods-card__name">명태 오브제</p>
+              <p class="goods-card__price">32,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--best">BEST</span><span class="goods-badge goods-badge--md">MD추천</span></div>
+            </div>
+          </li>
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/silla-saucebowl.jpg" alt="신라의 미소 소스볼 세트"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">접시/그릇</p>
+              <p class="goods-card__name">신라의 미소 소스볼 세트</p>
+              <p class="goods-card__price">25,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--best">BEST</span></div>
+            </div>
+          </li>
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/hogeon-airpods.jpg" alt="호건 에어팟 케이스"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">모바일 액세서리</p>
+              <p class="goods-card__name">호건 에어팟 케이스</p>
+              <p class="goods-card__price">18,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--best">BEST</span></div>
+            </div>
+          </li>
+          <li class="goods-card">
+            <div class="goods-card__img-wrap"><img src="img/joseon-gatsgeun.jpg" alt="조선의 멋, 갓끈"></div>
+            <div class="goods-card__body">
+              <p class="goods-card__cat">기타</p>
+              <p class="goods-card__name">조선의 멋, 갓끈</p>
+              <p class="goods-card__price">32,000원</p>
+              <div class="goods-card__badges"><span class="goods-badge goods-badge--new">NEW</span></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="goods-slider__btn" onclick="moveGoods(1)" aria-label="다음 상품">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+    <div class="goods-slider__dots" id="goodsDots"></div>
+  </section>
+
+
+  <!-- 스크롤 스파이 네비 -->
+  <nav class="scrollspy-nav" id="scrollspyNav" aria-label="방문 정보 메뉴">
+    <ul class="scrollspy-nav__list" role="tablist">
+      <li class="scrollspy-nav__item active" data-target="visitInfo" onclick="scrollToSection('visitInfo')">관람정보</li>
+      <li class="scrollspy-nav__item" data-target="floorGuide" onclick="scrollToSection('floorGuide')">층별안내</li>
+      <li class="scrollspy-nav__item" data-target="facilitiesSection" onclick="scrollToSection('facilitiesSection')">편의시설</li>
+      <li class="scrollspy-nav__item" data-target="accessSection" onclick="scrollToSection('accessSection')">오시는 길</li>
+      <li class="scrollspy-nav__item" data-target="faqSection" onclick="scrollToSection('faqSection')">자주 묻는 질문</li>
+    </ul>
+  </nav>
+
+  <!-- 섹션 6: 방문정보 -->
+  <div class="visit" id="visitSection">
+    <section class="visit-info" id="visitInfo" aria-label="관람정보" role="tabpanel">
+      <div class="section-header"><div><p class="section-subtitle">VISITOR INFORMATION</p><h2 class="section-title">관람정보</h2></div></div>
+      <div class="visit-info__grid">
+        <div class="visit-info__card"><h3 class="visit-info__card-title">관람시간</h3><ul><li class="visit-info__item"><span class="visit-info__item-label">월·화·목·금·일</span><span class="visit-info__item-value">09:30 ~ 17:30</span></li><li class="visit-info__item"><span class="visit-info__item-label">수·토</span><span class="visit-info__item-value">09:30 ~ 21:00</span></li><li class="visit-info__item"><span class="visit-info__item-label">야간개장</span><span class="visit-info__item-value">수·토 18:00 ~ 21:00</span></li></ul></div>
+        <div class="visit-info__card"><h3 class="visit-info__card-title">휴관일</h3><ul><li class="visit-info__item"><span class="visit-info__item-label">정기휴관</span><span class="visit-info__item-value">연중무휴</span></li><li class="visit-info__item"><span class="visit-info__item-label">임시휴관</span><span class="visit-info__item-value">1월 1일</span></li><li class="visit-info__item"><span class="visit-info__item-label">명절</span><span class="visit-info__item-value">설날·추석 당일</span></li></ul></div>
+        <div class="visit-info__card"><h3 class="visit-info__card-title">입장료</h3><ul><li class="visit-info__item"><span class="visit-info__item-label">상설전시관</span><span class="visit-info__item-value">무료</span></li><li class="visit-info__item"><span class="visit-info__item-label">특별전시</span><span class="visit-info__item-value">전시별 상이</span></li><li class="visit-info__item"><span class="visit-info__item-label">어린이박물관</span><span class="visit-info__item-value">예약 필요</span></li></ul><div class="visit-info__notice">현재 예약 가능한 전시를 확인하고 상단 <strong>예매하기</strong> 버튼을 이용하세요.</div></div>
+      </div>
+      <!-- ── 어린이박물관 + 학생단체 ── -->
+<div class="visit-sub-grid">
+
+  <div class="visit-sub-card">
+    <h3 class="visit-sub-card__title">어린이박물관</h3>
+    <ul class="visit-sub-card__list">
+      <li class="visit-info__item">
+        <span class="visit-info__item-label">운영시간</span>
+        <span class="visit-info__item-value">월~일 09:30 ~ 17:20</span>
+      </li>
+      <li class="visit-info__item">
+        <span class="visit-info__item-label">운영방식</span>
+        <span class="visit-info__item-value">회차별 사전예약제</span>
+      </li>
+    </ul>
+    <a href="#" class="visit-sub-card__btn">어린이박물관 예약 바로가기 →</a>
+  </div>
+
+  <div class="visit-sub-card">
+    <h3 class="visit-sub-card__title">학생 단체관람</h3>
+    <ul class="visit-sub-card__list">
+      <li class="visit-info__item">
+        <span class="visit-info__item-label">대상</span>
+        <span class="visit-info__item-value">초·중·고 30명 이상</span>
+      </li>
+      <li class="visit-info__item">
+        <span class="visit-info__item-label">운영방식</span>
+        <span class="visit-info__item-value">사전예약제 (미예약 입장 불가)</span>
+      </li>
+    </ul>
+    <a href="#" class="visit-sub-card__btn">학생단체관람 예약 바로가기 →</a>
+  </div>
+
+</div>
+
+
+<!-- ── 휴실일 안내 ── -->
+<div class="visit-closure">
+  <h3 class="visit-closure__title">정기 휴실일 안내</h3>
+  <p class="visit-closure__desc">
+    매년 3·6·9·12월 첫째 월요일에 상설전시관 및 특별전시실 1·2를 휴실합니다.
+    <strong>야외전시장은 정상 운영합니다.</strong>
+  </p>
+  <div class="visit-closure__grid">
+    <div class="visit-closure__item">
+      <span class="visit-closure__label">2026년 휴실일</span>
+      <ul class="visit-closure__dates">
+        <li>2026. 06. 01 (월)</li>
+        <li>2026. 09. 07 (월)</li>
+        <li>2026. 12. 07 (월)</li>
+      </ul>
+      <p class="visit-closure__note">※ 2026년 3월 휴실 없음</p>
+    </div>
+    <div class="visit-closure__item">
+      <span class="visit-closure__label">휴실 대상</span>
+      <ul class="visit-closure__dates">
+        <li>상설전시관</li>
+        <li>특별전시실 1, 2</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── 관람 유의사항 ── -->
+<div class="visit-guidelines">
+  <h3 class="visit-guidelines__title">관람 유의사항</h3>
+  <ul class="guideline-list">
+
+    <li class="guideline-item">
+      <button class="guideline-item__q" aria-expanded="false" onclick="toggleGuideline(this)">
+        <span>기본 관람 수칙</span>
+        <span class="guideline-item__icon">+</span>
+      </button>
+      <ul class="guideline-item__list">
+        <li>박물관 전 구역 금연</li>
+        <li>음식물 반입 금지</li>
+        <li>안내견 외 반려동물 출입 금지</li>
+        <li>전시실 입장 전 휴대전화 무음 또는 진동 전환 권장</li>
+        <li>전시관 내 정숙 유지 및 뛰는 행위 금지</li>
+        <li>전시물 접촉 및 훼손 행위 금지</li>
+        <li>마스크 착용은 방역지침에 따라 자율 착용</li>
+      </ul>
+    </li>
+
+    <li class="guideline-item">
+      <button class="guideline-item__q" aria-expanded="false" onclick="toggleGuideline(this)">
+        <span>소지품 및 복장</span>
+        <span class="guideline-item__icon">+</span>
+      </button>
+      <ul class="guideline-item__list">
+        <li>배낭 및 백팩은 1층 물품보관함 이용</li>
+        <li>바퀴 달린 신발 착용 시 입장 불가</li>
+        <li>슬리퍼 등 관람 환경을 해치는 복장 자제</li>
+      </ul>
+    </li>
+
+    <li class="guideline-item">
+      <button class="guideline-item__q" aria-expanded="false" onclick="toggleGuideline(this)">
+        <span>촬영 규정</span>
+        <span class="guideline-item__icon">+</span>
+      </button>
+      <ul class="guideline-item__list">
+        <li>상설전시관 내 대부분의 전시물은 플래시 없이 개인 촬영 가능</li>
+        <li>플래시, 삼각대, 셀카봉, 짐벌 사용 촬영 금지</li>
+        <li>상업적 촬영 금지</li>
+      </ul>
+    </li>
+
+    <li class="guideline-item">
+      <button class="guideline-item__q" aria-expanded="false" onclick="toggleGuideline(this)">
+        <span>이동 수단 및 보안</span>
+        <span class="guideline-item__icon">+</span>
+      </button>
+      <ul class="guideline-item__list">
+        <li>야외 관람로 내 자전거, 킥보드, 인라인스케이트, 스케이트보드 이용 금지</li>
+        <li>2024. 06. 11부터 문화유산 보호 및 안전을 위해 보안검색대 운영 중</li>
+        <li>소지품 확인 절차에 협조 부탁드립니다.</li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+    </section>
+
+    <!-- ===== 층별안내: 지도 이미지 + 전시실 목록 ===== -->
+    <section class="floor-guide" id="floorGuide" aria-label="층별안내" role="tabpanel">
+      <div class="section-header"><div><p class="section-subtitle">FLOOR GUIDE</p><h2 class="section-title">층별안내</h2></div></div>
+      <div class="floor-tabs" role="tablist">
+        <button class="floor-tab active" role="tab" onclick="switchFloor(this, 'floor1')">1층</button>
+        <button class="floor-tab" role="tab" onclick="switchFloor(this, 'floor2')">2층</button>
+        <button class="floor-tab" role="tab" onclick="switchFloor(this, 'floor3')">3층</button>
+      </div>
+
+      <!-- 1층 -->
+      <div class="floor-content active" id="floor1">
+        <div class="floor-map">
+          <img src="img/map-floor1.png" alt="1층 층별 안내도">
+        </div>
+        <div class="floor-rooms">
+          <div class="floor-room"><div class="floor-room__floor">1F</div>선사·고대관</div>
+          <div class="floor-room"><div class="floor-room__floor">1F</div>중·근세관</div>
+          <div class="floor-room"><div class="floor-room__floor">1F</div>특별전시실</div>
+          <div class="floor-room"><div class="floor-room__floor">1F</div>어린이박물관</div>
+          <div class="floor-room"><div class="floor-room__floor">1F</div>뮤지엄샵 MU:DS</div>
+          <div class="floor-room"><div class="floor-room__floor">1F</div>디지털 실감 영상관 1·3</div>
+        </div>
+      </div>
+
+      <!-- 2층 -->
+      <div class="floor-content" id="floor2">
+        <div class="floor-map">
+          <img src="img/map-floor2.png" alt="2층 층별 안내도">
+        </div>
+        <div class="floor-rooms">
+          <div class="floor-room"><div class="floor-room__floor">2F</div>서화관</div>
+          <div class="floor-room"><div class="floor-room__floor">2F</div>기증관</div>
+          <div class="floor-room"><div class="floor-room__floor">2F</div>사유의 방</div>
+          <div class="floor-room"><div class="floor-room__floor">2F</div>디지털 실감 영상관 2</div>
+          <div class="floor-room"><div class="floor-room__floor">2F</div>으뜸홀 카페</div>
+          <div class="floor-room"><div class="floor-room__floor">2F</div>도서관</div>
+        </div>
+      </div>
+
+      <!-- 3층 -->
+      <div class="floor-content" id="floor3">
+        <div class="floor-map">
+          <img src="img/map-floor3.png" alt="3층 층별 안내도">
+        </div>
+        <div class="floor-rooms">
+          <div class="floor-room"><div class="floor-room__floor">3F</div>조각·공예관</div>
+          <div class="floor-room"><div class="floor-room__floor">3F</div>세계문화관</div>
+          <div class="floor-room"><div class="floor-room__floor">3F</div>감각전시실</div>
+          <div class="floor-room"><div class="floor-room__floor">3F</div>뮷즈 브랜드 홍보관</div>
+          <div class="floor-room"><div class="floor-room__floor">3F</div>사유공간 찻집</div>
+        </div>
+      </div>
+    </section>
+<section class="facilities" id="facilitiesSection" aria-label="편의시설" role="tabpanel">
+  <div class="section-header">
+    <div>
+      <p class="section-subtitle">FACILITIES</p>
+      <h2 class="section-title">편의시설</h2>
+    </div>
+  </div>
+
+  <!-- ── 항상 보이는 편의 서비스 카드 3개 ── -->
+  <ul class="facilities__grid" role="list">
+    <li class="facility-card" role="listitem">
+      <div class="facility-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="7" width="18" height="14" rx="1.5"/>
+          <path d="M8 7V5a4 4 0 0 1 8 0v2"/>
+          <circle cx="12" cy="14" r="1.5"/>
+        </svg>
+      </div>
+      <h3 class="facility-card__name">물품보관소</h3>
+      <p class="facility-card__desc">1층 입구 무인 보관함<br>무료 이용 가능</p>
+    </li>
+    <li class="facility-card" role="listitem">
+      <div class="facility-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="5" r="2"/>
+          <path d="M5 21v-7a3 3 0 0 1 6 0v7"/>
+          <circle cx="17" cy="17" r="3"/>
+          <line x1="14" y1="17" x2="20" y2="17"/>
+        </svg>
+      </div>
+      <h3 class="facility-card__name">수유실</h3>
+      <p class="facility-card__desc">1·2층 각 1개소<br>유모차 반입 가능</p>
+    </li>
+    <li class="facility-card" role="listitem">
+      <div class="facility-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 4h2l3.5 9h8L18 7H8"/>
+          <circle cx="9"  cy="19" r="2"/>
+          <circle cx="17" cy="19" r="2"/>
+        </svg>
+      </div>
+      <h3 class="facility-card__name">유모차·휠체어 대여</h3>
+      <p class="facility-card__desc">1층 안내 데스크<br>무료 대여</p>
+    </li>
+  </ul>
+
+  <!-- ── 식당 / 카페·기타 / 휴게공간 탭 ── -->
+  <div class="facility-tabs-wrap">
+    <div class="facility-tabs" role="tablist">
+      <button class="facility-tab active" role="tab"
+              onclick="switchFacilityTab(this, 'facRestaurant')">식당</button>
+      <button class="facility-tab" role="tab"
+              onclick="switchFacilityTab(this, 'facCafe')">카페 · 기타</button>
+      <button class="facility-tab" role="tab"
+              onclick="switchFacilityTab(this, 'facRest')">휴게공간</button>
+    </div>
+
+    <!-- ===== 식당 탭 ===== -->
+    <div class="facility-tab-content active" id="facRestaurant">
+      <p class="facility-intro">
+        자연과 어우러진 쾌적하고 운치 있는 식당과 카페에서는 즐거운 식사와 편안한 휴식을 즐길 수 있습니다.
+        다양한 메뉴를 개발하고 철저한 책임 운영을 통한 최고의 서비스를 제공합니다.
+        <span class="facility-intro__note">※ 매장 마감으로 인하여 폐점 40분~1시간 전까지만 주문이 가능할 수 있습니다.</span>
+      </p>
+      <div class="restaurant-grid">
+
+        <!-- 푸드코트 -->
+        <article class="restaurant-card">
+          <div class="restaurant-card__img">
+            <img src="img/facility-foodcourt.jpg" alt="푸드코트">
+          </div>
+          <div class="restaurant-card__body">
+            <h3 class="restaurant-card__name">푸드코트</h3>
+            <p class="restaurant-card__name-en">Food Court</p>
+            <p class="restaurant-card__location">전시관 1층 상품관1 왼편</p>
+            <p class="restaurant-card__desc">한식, 중식, 양식, 분식 등 다양한 음식을 맛볼 수 있는 푸드코트입니다.</p>
+            <dl class="restaurant-card__hours-list">
+              <div class="restaurant-card__hours-row">
+                <dt>월·화·목·금·일·공휴일</dt><dd>09:30 ~ 17:30</dd>
+              </div>
+              <div class="restaurant-card__hours-row">
+                <dt>수·토</dt><dd>10:00 ~ 20:00</dd>
+              </div>
+            </dl>
+            <p class="restaurant-card__note">※ 마감 40분 전까지 주문 가능</p>
+            <p class="restaurant-card__phone">02-123-4560</p>
+          </div>
+        </article>
+
+        <!-- 경천사탑 식당 -->
+        <article class="restaurant-card">
+          <div class="restaurant-card__img">
+            <img src="img/facility-pagoda.jpg" alt="경천사탑 식당 by 두레">
+          </div>
+          <div class="restaurant-card__body">
+            <h3 class="restaurant-card__name">경천사탑 식당 by 두레</h3>
+            <p class="restaurant-card__name-en">Pagoda Restaurant by Doore</p>
+            <p class="restaurant-card__location">상설전시관 1층 경천사탑 뒤편</p>
+            <p class="restaurant-card__desc">숲 속에 온 듯 탁 트인 전망이 펼쳐지는 한식 위주의 쉼터 같은 식당. 인사동 전통 한정식당 '두레'가 운영합니다.</p>
+            <dl class="restaurant-card__hours-list">
+              <div class="restaurant-card__hours-row">
+                <dt>아침식사</dt><dd>09:30 ~ 11:00</dd>
+              </div>
+              <div class="restaurant-card__hours-row">
+                <dt>월·화·목·금·일·공휴일</dt><dd>11:00 ~ 17:30</dd>
+              </div>
+              <div class="restaurant-card__hours-row">
+                <dt>수·토</dt><dd>11:00 ~ 20:30</dd>
+              </div>
+            </dl>
+            <p class="restaurant-card__note">
+              ※ 아침메뉴 10:30까지 주문 가능<br>
+              ※ 라스트오더 평일 16:30 / 수·토 19:30
+            </p>
+            <p class="restaurant-card__phone">02-123-4561</p>
+          </div>
+        </article>
+
+        <!-- 거울못 식당 -->
+        <article class="restaurant-card">
+          <div class="restaurant-card__img">
+            <img src="img/facility-mirrorpond.jpg" alt="거울못 식당">
+          </div>
+          <div class="restaurant-card__body">
+            <h3 class="restaurant-card__name">거울못 식당</h3>
+            <p class="restaurant-card__name-en">Mirror Pond Restaurant</p>
+            <p class="restaurant-card__location">거울못 옆</p>
+            <p class="restaurant-card__desc">샐러드, 피자, 파스타, 스테이크를 즐길 수 있는 이탈리안 레스토랑. 창가석·테라스·독립 룸 공간 운영.</p>
+            <dl class="restaurant-card__hours-list">
+              <div class="restaurant-card__hours-row">
+                <dt>매일</dt><dd>11:00 ~ 21:00</dd>
+              </div>
+              <div class="restaurant-card__hours-row">
+                <dt>브레이크타임</dt><dd>15:30 ~ 17:00</dd>
+              </div>
+            </dl>
+            <p class="restaurant-card__note">※ 마감 1시간 전까지 주문 가능</p>
+            <p class="restaurant-card__phone">02-123-4562</p>
+          </div>
+        </article>
+
+      </div>
+    </div><!-- /facRestaurant -->
+
+
+    <!-- ===== 카페·기타 탭 ===== -->
+    <div class="facility-tab-content" id="facCafe">
+      <p class="facility-intro">
+        자연과 어우러진 레스토랑과 카페에서 편안한 휴식을 즐길 수 있습니다.
+        <span class="facility-intro__note">※ 매장 마감으로 인하여 폐점 15분~1시간 전까지만 주문이 가능할 수 있습니다.</span>
+      </p>
+<div class="cafe-grid">
+
+  <!-- 으뜸홀 카페 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-cafe-euddeum.jpg" alt="으뜸홀 카페">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">으뜸홀 카페</h3>
+      <span class="cafe-card__brand">이디야 커피</span>
+    </div>
+    <p class="cafe-card__location">으뜸홀 2층</p>
+    <p class="cafe-card__desc">남산 전망이 보이는 쾌적한 휴식 공간</p>
+    <span class="cafe-card__badge cafe-card__badge--noto">take-out 불가</span>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:15</span></div>
+      <div class="cafe-card__info-row"><span>수·토</span><span>09:30 ~ 20:15</span></div>
+      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
+      <p class="cafe-card__phone">02-123-4563</p>
+    </div>
+  </article>
+
+  <!-- 사유 공간 찻집 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-cafe-sayu.jpg" alt="사유 공간 찻집">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">사유 공간 찻집</h3>
+      <span class="cafe-card__brand">이디야 커피</span>
+    </div>
+    <p class="cafe-card__location">전시관 3층 동쪽</p>
+    <p class="cafe-card__desc">한국의 전통차를 마시며 관람 피로를 회복할 수 있는 아늑한 공간</p>
+    <span class="cafe-card__badge cafe-card__badge--noto">take-out 불가</span>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>매일</span><span>09:30 ~ 16:45</span></div>
+      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
+      <p class="cafe-card__phone">02-123-4564</p>
+    </div>
+  </article>
+
+  <!-- 버금홀 카페 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-cafe-beokgeum.jpg" alt="버금홀 카페">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">버금홀 카페</h3>
+      <span class="cafe-card__brand">이디야 커피</span>
+    </div>
+    <p class="cafe-card__location">서관 문화상품점 옆 · 좌석 없음</p>
+    <p class="cafe-card__desc">향긋한 커피향이 가득한 프리미엄 디저트 카페</p>
+    <span class="cafe-card__badge cafe-card__badge--take">take-out 전문점</span>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:15</span></div>
+      <div class="cafe-card__info-row"><span>수·토</span><span>09:30 ~ 20:15</span></div>
+      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
+      <p class="cafe-card__phone">02-123-4565</p>
+    </div>
+  </article>
+
+  <!-- 용 카페 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-cafe-yong.jpg" alt="용 카페">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">용 카페</h3>
+      <span class="cafe-card__brand">이디야 커피</span>
+    </div>
+    <p class="cafe-card__location">극장 '용' 로비</p>
+    <p class="cafe-card__desc">커피 및 베이커리 테이크아웃 전문점. 공연장 내부 음식물 반입 불가.</p>
+    <span class="cafe-card__badge cafe-card__badge--take">take-out 전문점</span>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>화·목·금·토·일</span><span>09:30 ~ 17:30</span></div>
+      <div class="cafe-card__info-row"><span>수</span><span>12:00 ~ 20:30</span></div>
+      <p class="cafe-card__note">※ 월요일 휴점 · 폐점 30분 전까지 주문</p>
+      <p class="cafe-card__phone">02-123-4566</p>
+    </div>
+  </article>
+
+  <!-- 야외 카페 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-cafe-outdoor.jpg" alt="야외 카페">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">야외 카페</h3>
+      <span class="cafe-card__brand">이디야 커피</span>
+    </div>
+    <p class="cafe-card__location">서문 입구 (편의점 오른편)</p>
+    <p class="cafe-card__desc">야외 테라스에서 커피와 프리미엄 디저트를 즐길 수 있습니다.</p>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:15</span></div>
+      <div class="cafe-card__info-row"><span>수·토</span><span>09:30 ~ 20:15</span></div>
+      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
+      <p class="cafe-card__phone">02-123-4567</p>
+    </div>
+  </article>
+
+  <!-- 투썸플레이스 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-cafe-twosome.jpg" alt="투썸플레이스">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">투썸플레이스</h3>
+      <span class="cafe-card__brand">TWOSOME PLACE</span>
+    </div>
+    <p class="cafe-card__location">서문 입구 (편의점 오른편)</p>
+    <p class="cafe-card__desc">커피와 프리미엄 디저트를 즐길 수 있습니다.</p>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:30</span></div>
+      <div class="cafe-card__info-row"><span>수·토</span><span>10:00 ~ 19:30</span></div>
+      <p class="cafe-card__note">※ 마감 임박 시 일부 메뉴 조기 마감 가능</p>
+      <p class="cafe-card__phone">02-123-4568</p>
+    </div>
+  </article>
+
+  <!-- 편의점 -->
+  <article class="cafe-card">
+    <div class="cafe-card__img">
+      <img src="img/facility-convenience.jpg" alt="편의점">
+    </div>
+    <div class="cafe-card__header">
+      <h3 class="cafe-card__name">편의점</h3>
+      <span class="cafe-card__brand">Convenience Store</span>
+    </div>
+    <p class="cafe-card__location">야외 부속 A동 (박물관 나들길 입구)</p>
+    <p class="cafe-card__desc">박물관 관람 중 긴급히 필요한 생활물품을 구입하실 수 있습니다.</p>
+    <div class="cafe-card__info">
+      <div class="cafe-card__info-row"><span>매일</span><span>08:00 ~ 21:00</span></div>
+      <p class="cafe-card__phone">02-123-4569</p>
+    </div>
+  </article>
+
+</div>
+    </div><!-- /facCafe -->
+
+
+    <!-- ===== 휴게공간 탭 ===== -->
+    <div class="facility-tab-content" id="facRest">
+<div class="rest-grid">
+
+  <!-- 후원광장 -->
+  <article class="rest-card">
+    <div class="rest-card__img">
+      <img src="img/facility-rest-huwon.jpg" alt="후원광장 휴게공간">
+    </div>
+    <h3 class="rest-card__name">후원광장 휴게공간</h3>
+    <p class="rest-card__location">열린마당 뒤편 모란못 주변</p>
+    <ul class="rest-card__info">
+      <li><span class="rest-card__label">시설</span><span>파고라 2동 · 야외테이블 20개</span></li>
+      <li><span class="rest-card__label">수용인원</span><span>최대 160명</span></li>
+      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
+    </ul>
+  </article>
+
+  <!-- 거울못 휴게공간 -->
+  <article class="rest-card">
+    <div class="rest-card__img">
+      <img src="img/facility-rest-mirror.jpg" alt="거울못 휴게공간">
+    </div>
+    <h3 class="rest-card__name">거울못 휴게공간</h3>
+    <p class="rest-card__location">거울못 주변 · 거울못 식당 옥상</p>
+    <ul class="rest-card__info">
+      <li><span class="rest-card__label">시설</span><span>파고라 4동 · 야외테이블 17개, 원형테이블 1개, 연식의자</span></li>
+      <li><span class="rest-card__label">수용인원</span><span>최대 145명</span></li>
+      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
+    </ul>
+  </article>
+
+  <!-- 전시동 동문앞 -->
+  <article class="rest-card">
+    <div class="rest-card__img">
+      <img src="img/facility-rest-east.jpg" alt="전시동 동문앞 휴게공간">
+    </div>
+    <h3 class="rest-card__name">전시동 동문앞 휴게공간</h3>
+    <p class="rest-card__location">출입구 주변</p>
+    <ul class="rest-card__info">
+      <li><span class="rest-card__label">시설</span><span>야외테이블 13개</span></li>
+      <li><span class="rest-card__label">수용인원</span><span>최대 104명</span></li>
+      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
+    </ul>
+  </article>
+
+  <!-- 석조물정원 -->
+  <article class="rest-card">
+    <div class="rest-card__img">
+      <img src="img/facility-rest-sculpture.jpg" alt="석조물정원 휴게공간">
+    </div>
+    <h3 class="rest-card__name">석조물정원 휴게공간</h3>
+    <p class="rest-card__location">정문 동쪽 석조물 정원 주변</p>
+    <ul class="rest-card__info">
+      <li><span class="rest-card__label">시설</span><span>파고라 1동 · 야외테이블 24개</span></li>
+      <li><span class="rest-card__label">수용인원</span><span>최대 192명</span></li>
+      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
+    </ul>
+  </article>
+
+  <!-- 다목적실 -->
+  <article class="rest-card rest-card--special">
+    <div class="rest-card__img">
+      <img src="img/facility-rest-multipurpose.jpg" alt="다목적실">
+    </div>
+    <h3 class="rest-card__name">다목적실</h3>
+    <p class="rest-card__location">교육관 1층</p>
+    <p class="rest-card__desc">초·중·고 학생 단체 및 유치원·어린이집 단체 관람객 도시락 식사 가능</p>
+    <ul class="rest-card__info">
+      <li><span class="rest-card__label">수용인원</span><span>최대 60명</span></li>
+      <li><span class="rest-card__label">운영시간</span><span>월~금 11:00 ~ 14:00 (공휴일·휴관일 제외)</span></li>
+      <li><span class="rest-card__label">이용방법</span><span>선착순 자율 이용 (30분 이내)</span></li>
+    </ul>
+  </article>
+
+</div>
+    </div><!-- /facRest -->
+
+  </div><!-- /facility-tabs-wrap -->
+</section>
+    <section class="access-guide" id="accessSection" aria-label="오시는 길" role="tabpanel">
+      <div class="section-header"><div><p class="section-subtitle">ACCESS GUIDE</p><h2 class="section-title">오시는 길</h2></div></div>
+      <div class="access-guide__grid">
+        <div class="access-item"><h3 class="access-item__title">지하철</h3><div class="access-item__row"><span class="access-item__label">4호선</span><span class="access-item__value">이촌역 2번 출구 → 박물관 나들길 이용 (도보 약 5분)</span></div><div class="access-item__row"><span class="access-item__label">경의중앙선</span><span class="access-item__value">이촌역 하차 후 도보 이용</span></div><p <p class="access-tip">
+  <svg class="access-tip__icon" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="12" y1="8" x2="12" y2="12"/>
+    <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+  </svg>
+  이촌역 2번 출구에서 박물관 나들길을 이용하면 지하로 바로 연결됩니다.
+</p></div>
+        <div class="access-item"><h3 class="access-item__title">주차 안내</h3><div class="access-item__row"><span class="access-item__label">위치</span><span class="access-item__value">박물관 지하주차장 (약 900대 수용)</span></div><div class="access-item__row"><span class="access-item__label">요금</span><span class="access-item__value">최초 1시간 무료, 이후 10분당 300원</span></div><div class="access-item__row"><span class="access-item__label">혼잡시간</span><span class="access-item__value">주말 11:00 ~ 14:00 혼잡 (대중교통 권장)</span></div><p class="access-tip">
+  <svg class="access-tip__icon" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="12" y1="8" x2="12" y2="12"/>
+    <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+  </svg>
+  주말 및 공휴일에는 대중교통 이용을 권장합니다.
+</p></div>
+      </div>
+    </section>
+    <section class="faq" id="faqSection" aria-label="자주 묻는 질문" role="tabpanel">
+      <div class="section-header"><div><p class="section-subtitle">FAQ</p><h2 class="section-title">자주 묻는 질문</h2></div></div>
+      <ul class="faq__list">
+        <li class="faq-item"><button class="faq-item__question" aria-expanded="false" onclick="toggleFaq(this)"><span>사진 촬영이 가능한가요?</span><span class="faq-item__icon">+</span></button><div class="faq-item__answer">상설전시관 내 대부분의 전시물은 플래시 없이 개인 사진 촬영이 가능합니다.</div></li>
+        <li class="faq-item"><button class="faq-item__question" aria-expanded="false" onclick="toggleFaq(this)"><span>유모차 대여는 어디서 하나요?</span><span class="faq-item__icon">+</span></button><div class="faq-item__answer">유모차 대여는 1층 물품보관소 옆 안내 데스크에서 가능합니다.</div></li>
+        <li class="faq-item"><button class="faq-item__question" aria-expanded="false" onclick="toggleFaq(this)"><span>오디오 가이드는 어떻게 이용하나요?</span><span class="faq-item__icon">+</span></button><div class="faq-item__answer">국립중앙박물관 공식 앱을 다운로드하시면 무료로 오디오 가이드를 이용하실 수 있습니다.</div></li>
+        <li class="faq-item"><button class="faq-item__question" aria-expanded="false" onclick="toggleFaq(this)"><span>단체 관람 예약은 어떻게 하나요?</span><span class="faq-item__icon">+</span></button><div class="faq-item__answer">10인 이상 단체 관람은 홈페이지 또는 전화(02-000-0000)를 통해 사전 예약하실 수 있습니다.</div></li>
+        <li class="faq-item"><button class="faq-item__question" aria-expanded="false" onclick="toggleFaq(this)"><span>주차장 이용 요금은 얼마인가요?</span><span class="faq-item__icon">+</span></button><div class="faq-item__answer">최초 1시간은 무료이며, 이후 10분당 300원이 부과됩니다.</div></li>
+      </ul>
+    </section>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" aria-label="사이트 정보">
+  <div class="footer-sns">
+    <p class="footer-sns__title">SNS 링크</p>
+<ul class="footer-sns__list">
+  <li><a href="#" class="footer-sns__item" aria-label="블로그">
+    <img src="img/blog-icon.png" alt="블로그">
+  </a></li>
+  <li><a href="#" class="footer-sns__item" aria-label="X(트위터)">
+    <img src="img/X-icon.png" alt="X(트위터)">
+  </a></li>
+  <li><a href="#" class="footer-sns__item" aria-label="인스타그램">
+    <img src="img/instagram-icon.png" alt="인스타그램">
+  </a></li>
+  <li><a href="#" class="footer-sns__item" aria-label="유튜브">
+    <img src="img/youtube-icon.png" alt="유튜브">
+  </a></li>
+</ul>  </div>
+  <nav class="footer-nav">
+    <div><p class="footer-nav__title">박물관 소개</p><a href="#" class="footer-nav__link">기관 소개</a><a href="#" class="footer-nav__link">조직 안내</a><a href="#" class="footer-nav__link">이용 약관</a><a href="#" class="footer-nav__link">개인정보처리방침</a></div>
+    <div><p class="footer-nav__title">박물관 소식</p><a href="#" class="footer-nav__link">공지사항</a><a href="#" class="footer-nav__link">보도자료</a><a href="#" class="footer-nav__link">뉴스레터</a></div>
+    <div><p class="footer-nav__title">학술·연구</p><a href="#" class="footer-nav__link">연구 간행물</a><a href="#" class="footer-nav__link">디지털 자료실</a><a href="#" class="footer-nav__link">학술 행사</a></div>
+    <div><p class="footer-nav__title">교육</p><a href="#" class="footer-nav__link">교육 프로그램</a><a href="#" class="footer-nav__link">어린이 체험</a><a href="#" class="footer-nav__link">단체 예약</a></div>
+    <div><p class="footer-nav__title">관련 사이트</p><a href="#" class="footer-nav__link">국립박물관문화재단</a><a href="#" class="footer-nav__link">국립중앙박물관회</a><a href="#" class="footer-nav__link">한국박물관협회</a></div>
+  </nav>
+  <div class="footer-affiliate">
+    <button class="footer-affiliate__btn" onclick="toggleAffiliate()" aria-expanded="false" aria-controls="affiliateList">소속 박물관 <span class="footer-affiliate__arrow">›</span>
+    </button>
+    <ul class="footer-affiliate__list" id="affiliateList" role="list">
+      <li><a href="#" class="footer-affiliate__item">국립경주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립광주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립전주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립대구박물관</a></li><li><a href="#" class="footer-affiliate__item">국립부여박물관</a></li><li><a href="#" class="footer-affiliate__item">국립공주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립진주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립청주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립김해박물관</a></li><li><a href="#" class="footer-affiliate__item">국립제주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립춘천박물관</a></li><li><a href="#" class="footer-affiliate__item">국립나주박물관</a></li><li><a href="#" class="footer-affiliate__item">국립익산박물관</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-bottom__copy">© National Museum of Korea. All rights reserved.<br>04383 서울특별시 용산구 서빙고로 137 | 대표전화 02)-000-0000</p>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+
+<nav class="bottom-nav">
+  <a href="#" class="bottom-nav__item">관람안내</a>
+  <a href="#" class="bottom-nav__item">전시·행사</a>
+  <a href="#" class="bottom-nav__item">교육</a>
+  <a href="#" class="bottom-nav__item">어린이 박물관</a>
+</nav>
+
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="맨 위로">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+</body>
+</html>
