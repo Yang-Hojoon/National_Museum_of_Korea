@@ -479,6 +479,25 @@ img { max-width: 100%; display: block; }
 
 
 /* =============================================================
+   PC 전용 — 편의시설 카드 텍스트 크기 축소 (min-width: 769px)
+   모바일은 1rem = 14px 로 그대로 유지
+============================================================= */
+@media (min-width: 769px) {
+  .restaurant-card__location { font-size: 16px; }
+  .restaurant-card__desc     { font-size: 16px; }
+  .restaurant-card__hours-row { font-size: 16px; }
+  .cafe-card__name     { font-size: 18px; }
+  .cafe-card__brand    { font-size: 16px; }
+  .cafe-card__desc     { font-size: 16px; }
+  .cafe-card__info-row { font-size: 16px; }
+  .cafe-card__note     { font-size: 14px; }
+  .cafe-card__phone    { font-size: 14px; }
+  .rest-card__desc     { font-size: 16px; }
+  .rest-card__info li  { font-size: 16px; }
+}
+
+
+/* =============================================================
    RESPONSIVE — 태블릿 (max-width: 1024px)
 ============================================================= */
 @media (max-width: 1024px) {
@@ -584,7 +603,7 @@ img { max-width: 100%; display: block; }
 
   /* ── 스크롤스파이 ── */
   .scrollspy-nav { top: 64px; }
-  .scrollspy-nav__item { padding: 12px 14px; }
+  .scrollspy-nav__item { padding: 12px 14px; font-size: 13px; }
 
   /* ── 메가메뉴 ── */
   .mega-menu__search-wrap { display: block; }
@@ -698,6 +717,11 @@ img { max-width: 100%; display: block; }
   .cafe-grid { grid-template-columns: 1fr; }
   .rest-grid { grid-template-columns: 1fr; }
   .rest-card--special { grid-column: span 1; }
+
+  /* ── 식당 카드 모바일 강조 ── */
+  .restaurant-card__name    { font-size: 1rem; font-weight: 600; color: #111; }
+  .restaurant-card__name-en { font-size: 0.85rem; font-weight: 500; color: #111; }
+
 
   /* ── 오시는 길 ── */
   .access-item__row   { font-size: 14px; }

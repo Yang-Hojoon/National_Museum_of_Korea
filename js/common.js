@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const scrollspyNav = document.getElementById('scrollspyNav');
   window.addEventListener('scroll', () => {
     if (scrollspyNav) {
-      scrollspyNav.style.top = header.classList.contains('hide') ? '0px' : header.offsetHeight + 'px';
+      scrollspyNav.style.top = header.classList.contains('hide') ? '0px' : (header.offsetHeight - 1) + 'px';
     }
   });
 
