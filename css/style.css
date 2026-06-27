@@ -8,39 +8,20 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 img { max-width: 100%; display: block; }
 
 /* ===== CSS VARIABLES ===== */
-/*
-  변수 정리 기준 (실제 색상 기준으로 이름 통일):
-  ─────────────────────────────────────────────
-  [제거]  --gold      #ffffff → --white 로 통합 (동일값)
-  [제거]  --dark2     #000000 → --dark  로 통합 (동일값)
-  [변경]  --gold-dark #8b6914 → --amber #8b7535 (실제 쓰이는 값으로 수정)
-  [변경]  --olive     #d6d6d6 → --silver         (실제 색에 맞게 개명)
-  [변경]  --dark3     #111120 → --dark-footer     (용도 명확화)
-  [추가]  --section-padding 80px (섹션 수직 패딩 통일)
-*/
 :root {
-  /* ── 배경 계열 ── */
-  --dark:           #000000;  /* 헤더, 히어로, 코스 섹션 배경 */
-  --dark-footer:    #000000;  /* 푸터 전용 배경 */
-  --light:          #f8f8f8;  /* 카드/안내박스 내부 배경 */
-  --white:          #ffffff;  /* 순백 배경 및 다크 섹션 강조색 */
-
-  /* ── 텍스트 계열 ── */
-  --text:           #1c1c28;  /* 본문 기본색 */
-  --text-sub:       #444444;  /* 보조 텍스트 */
-  --gray:           #424242;  /* 힌트 텍스트, 레이블 */
-
-  /* ── 강조/포인트 계열 ── */
-  --amber:          #8b7535;  /* 로고 영문, 전시 태그 (따뜻한 황갈색) */
-  --silver:         #d6d6d6;  /* 메가메뉴 컬럼 타이틀 (밝은 회색) */
-
-  /* ── 구분선 ── */
-  --border:         #e8e5df;  /* 카드, 섹션 구분선 (따뜻한 베이지 계열) */
-
-  /* ── 레이아웃 ── */
+  --dark:           #000000;
+  --dark-footer:    #000000;
+  --light:          #f8f8f8;
+  --white:          #ffffff;
+  --text:           #1c1c28;
+  --text-sub:       #444444;
+  --gray:           #424242;
+  --amber:          #8b7535;
+  --silver:         #d6d6d6;
+  --border:         #e8e5df;
   --header-padding:  40px;
   --nav-padding-v:   20px;
-  --section-padding: 80px;    /* 주요 섹션 수직 패딩 */
+  --section-padding: 80px;
 }
 
 .img-placeholder { background: #d4d0c8; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.75rem; width: 100%; }
@@ -467,8 +448,8 @@ img { max-width: 100%; display: block; }
 .footer-affiliate { padding: 20px 80px; border-bottom: 1px solid #3b3b3b; }
 .footer-affiliate__btn { color: var(--white); font-size: 0.8rem; display: flex; align-items: center; gap: 8px; cursor: pointer; }
 .footer-affiliate__btn:hover { opacity: 0.7; }
-.footer-affiliate__arrow {display: inline-block;transition: transform 0.3s ease;font-style: normal;}
-.footer-affiliate__btn[aria-expanded="true"] .footer-affiliate__arrow {transform: rotate(90deg);}
+.footer-affiliate__arrow { display: inline-block; transition: transform 0.3s ease; font-style: normal; }
+.footer-affiliate__btn[aria-expanded="true"] .footer-affiliate__arrow { transform: rotate(90deg); }
 .footer-affiliate__list { display: none; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 12px; }
 .footer-affiliate__list.open { display: grid; }
 .footer-affiliate__item { color: #bebebe; font-size: 0.6875rem; padding: 6px 12px; border: 1px solid #3b3b3b; transition: border-color 0.2s, color 0.2s; display: block; }
@@ -511,10 +492,10 @@ img { max-width: 100%; display: block; }
   .hero__welcome-title { font-size: 1.5rem; }
   .hero__welcome-btn { padding: 12px 130px; }
   .hero__open-badge       { font-size: 13px; }
-.hero__hours-today-text { font-size: 14px; }
-.hero__hours-item span  { font-size: 14px; }
-.hero__access-label     { font-size: 12px; }
-.hero__access-text      { font-size: 14px; }
+  .hero__hours-today-text { font-size: 14px; }
+  .hero__hours-item span  { font-size: 14px; }
+  .hero__access-label     { font-size: 12px; }
+  .hero__access-text      { font-size: 14px; }
 
   /* ── 하이라이트 ── */
   .highlights { padding: 48px 40px 0; }
@@ -525,17 +506,17 @@ img { max-width: 100%; display: block; }
   .exhi-slider__btn { width: 44px; }
   .exhi-slide__title { font-size: 1.2rem; }
   .section-more           { font-size: 14px; }
-.exhibition__tab        { font-size: 14px; }
-.exhi-slide__tag        { font-size: 13px; }
-.exhi-slide__place      { font-size: 14px; }
-.exhi-slide__date       { font-size: 14px; }
-.exhi-slide__desc       { font-size: 14px; }
-.exhi-events-label      { font-size: 14px; }
-.exhi-event-card__tag   { font-size: 12px; }
-.exhi-event-card__place { font-size: 13px; }
-.exhi-event-card__date  { font-size: 13px; }
-.exhi-event-card__link  { font-size: 13px; }
-.facility-tab { font-size: 0.85rem; }
+  .exhibition__tab        { font-size: 14px; }
+  .exhi-slide__tag        { font-size: 13px; }
+  .exhi-slide__place      { font-size: 14px; }
+  .exhi-slide__date       { font-size: 14px; }
+  .exhi-slide__desc       { font-size: 14px; }
+  .exhi-events-label      { font-size: 14px; }
+  .exhi-event-card__tag   { font-size: 12px; }
+  .exhi-event-card__place { font-size: 13px; }
+  .exhi-event-card__date  { font-size: 13px; }
+  .exhi-event-card__link  { font-size: 13px; }
+  .facility-tab { font-size: 0.85rem; }
 
   /* ── 관람코스 ── */
   .course { padding: 48px 40px; }
@@ -558,10 +539,10 @@ img { max-width: 100%; display: block; }
   .cafe-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* ── 오시는 길 ── */
-.access-item__row   { font-size: 15px; }
-.access-item__label { font-size: 13px; }
-.access-item__value { font-size: 15px; }
-.access-tip         { font-size: 14px; }
+  .access-item__row   { font-size: 15px; }
+  .access-item__label { font-size: 13px; }
+  .access-item__value { font-size: 15px; }
+  .access-tip         { font-size: 14px; }
 
   /* ── 푸터 ── */
   .footer-sns,
@@ -579,8 +560,11 @@ img { max-width: 100%; display: block; }
 
 /* =============================================================
    RESPONSIVE — 모바일 (max-width: 768px)
-   ※ 글씨 크기·색상 수정 시 각 섹션 주석 아래에서 수정하세요
 ============================================================= */
+
+.bottom-nav { display: none; }
+.top-btn    { display: none; }
+
 @media (max-width: 768px) {
   /* ── 기본 ── */
   html { font-size: 14px; }
@@ -595,6 +579,8 @@ img { max-width: 100%; display: block; }
   .util-shop span, .util-ticket span { display: none; }
   .util-shop .util-icon,
   .util-ticket .util-icon { width: 22px; height: 22px; }
+  .header-util__left  { flex: 1; }
+  .header-util__right { flex: 1; justify-content: flex-end; }
 
   /* ── 스크롤스파이 ── */
   .scrollspy-nav { top: 64px; }
@@ -625,15 +611,14 @@ img { max-width: 100%; display: block; }
   .hero__info { grid-template-columns: 1fr; padding: 36px 20px; gap: 32px; }
   .hero__divider { display: none; }
   .hero__welcome-title { font-size: 1.3rem; margin-bottom: 30px; }
-  .hero__welcome-sub { font-size: 0.8rem; font-weight: 700;}
+  .hero__welcome-sub { font-size: 0.8rem; font-weight: 700; }
   .hero__welcome-btn { width: 100%; justify-content: center; font-size: 1rem; padding: 12px 24px; }
   .hero__tab              { font-size: 14px; }
-.hero__open-badge       { font-size: 12px; }
-.hero__hours-today-text { font-size: 13px; }
-.hero__hours-item span  { font-size: 13px; }
-.hero__access-label     { font-size: 11px; }
-.hero__access-text      { font-size: 13px; }
-
+  .hero__open-badge       { font-size: 12px; }
+  .hero__hours-today-text { font-size: 13px; }
+  .hero__hours-item span  { font-size: 13px; }
+  .hero__access-label     { font-size: 11px; }
+  .hero__access-text      { font-size: 13px; }
 
   /* ── 하이라이트 ── */
   .highlights { padding: 40px 16px 0; }
@@ -652,7 +637,7 @@ img { max-width: 100%; display: block; }
 
   /* ── 전시 및 행사 ── */
   .exhibition { padding: 40px 16px; }
-  .exhibition__tab { padding: 10px 14px; font-size: 0.8rem; }
+  .exhibition__tab { padding: 10px 14px; font-size: 13px; }
   .exhi-slider__stage { margin: 0 10px 30px; position: relative; gap: 0; }
   .exhi-slider__btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 36px; height: 36px; background: rgba(0,0,0,0.4); border-color: transparent; color: var(--white); }
   .exhi-slider__btn--prev { left: 12px; }
@@ -662,22 +647,16 @@ img { max-width: 100%; display: block; }
   .exhi-slide__title { font-size: 1.1rem; }
   .exhi-slider__img-wrap { aspect-ratio: 3/4; }
   .exhi-events { grid-template-columns: 1fr; gap: 32px; }
-  .section-more              { font-size: 11px; }
-.exhi-slide__tag           { font-size: 12px; }
-.exhi-slide__place         { font-size: 13px; }
-.exhi-slide__date          { font-size: 13px; }
-.exhi-slide__desc          { font-size: 13px; }
-.exhi-events-label         { font-size: 13px; }
-.exhi-event-card__tag      { font-size: 11px; }
-.exhi-event-card__place    { font-size: 12px; }
-.exhi-event-card__date     { font-size: 12px; }
-.exhi-event-card__link     { font-size: 12px; }
-
-/* ── 오시는 길 ── */
-.access-item__row   { font-size: 14px; }
-.access-item__label { font-size: 12px; }
-.access-item__value { font-size: 14px; }
-.access-tip         { font-size: 13px; }
+  .section-more           { font-size: 11px; }
+  .exhi-slide__tag        { font-size: 12px; }
+  .exhi-slide__place      { font-size: 13px; }
+  .exhi-slide__date       { font-size: 13px; }
+  .exhi-slide__desc       { font-size: 13px; }
+  .exhi-events-label      { font-size: 13px; }
+  .exhi-event-card__tag   { font-size: 11px; }
+  .exhi-event-card__place { font-size: 12px; }
+  .exhi-event-card__date  { font-size: 12px; }
+  .exhi-event-card__link  { font-size: 12px; }
 
   /* ── 관람코스 ── */
   .course { padding: 32px 16px; }
@@ -712,13 +691,19 @@ img { max-width: 100%; display: block; }
   .floor-map { position: static; }
   .floor-rooms { grid-template-columns: 1fr; }
   .facilities__grid { grid-template-columns: 1fr; }
-  .facility-tab { padding: 10px 14px; font-size: 16px; letter-spacing: 1px; } /* ← 글씨 크기 조정 */
+  .facility-tab { padding: 10px 14px; font-size: 16px; letter-spacing: 1px; }
   .access-guide__grid { grid-template-columns: 1fr; }
   .restaurant-grid { grid-template-columns: 1fr; }
   .restaurant-card:nth-child(3) { grid-column: span 1; }
   .cafe-grid { grid-template-columns: 1fr; }
   .rest-grid { grid-template-columns: 1fr; }
   .rest-card--special { grid-column: span 1; }
+
+  /* ── 오시는 길 ── */
+  .access-item__row   { font-size: 14px; }
+  .access-item__label { font-size: 12px; }
+  .access-item__value { font-size: 14px; }
+  .access-tip         { font-size: 13px; }
 
   /* ── 푸터 ── */
   .footer-sns,
@@ -730,13 +715,10 @@ img { max-width: 100%; display: block; }
   .footer-sns__list { gap: 30px; }
   .site-footer { padding-bottom: 56px; }
 
-}
-
-.bottom-nav { display: none; }
-
-@media (max-width: 768px) {
+  /* ── 하단 네비바 ── */
   .bottom-nav {
     display: flex;
+    justify-content: space-evenly;
     position: fixed;
     bottom: 0; left: 0; right: 0;
     background: #111111;
@@ -745,7 +727,6 @@ img { max-width: 100%; display: block; }
     z-index: 900;
   }
   .bottom-nav__item {
-    flex: 1;
     text-align: center;
     padding: 14px 4px;
     color: var(--white);
@@ -755,19 +736,14 @@ img { max-width: 100%; display: block; }
     letter-spacing: 0.5px;
   }
   .bottom-nav__item:hover { color: #aaa; }
-}
 
-.top-btn {
-  display: none;
-}
-
-@media (max-width: 768px) {
+  /* ── TOP 버튼 ── */
   .top-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 70px;       /* 하단 네비 위에 뜨도록 */
+    bottom: 70px;
     right: 16px;
     width: 44px;
     height: 44px;
