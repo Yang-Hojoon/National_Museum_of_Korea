@@ -22,6 +22,21 @@ img { max-width: 100%; display: block; }
   --header-padding:  40px;
   --nav-padding-v:   20px;
   --section-padding: 80px;
+
+  /* ── 좌우 여백 (PC·태블릿 공통 규칙에서 사용) ──
+     화면 크기와 상관없이 같은 여백을 둠. PC 100px / 태블릿 48px (태블릿 구간에서 덮어씀) */
+  --side-pad: 100px;
+  --gutter:   var(--side-pad);
+
+  /* ── 글자 크기 단계 (PC 기준, 태블릿은 아래 태블릿 구간에서 덮어씀) ── */
+  --fs-hero:    34px;  /* 히어로 환영 제목 */
+  --fs-h2:      32px;  /* 섹션 제목 */
+  --fs-h3-lg:   24px;  /* 큰 카드 제목 (전시 슬라이드, 관람코스) */
+  --fs-h3:      20px;  /* 카드 제목 */
+  --fs-lead:    18px;  /* 강조 본문 (히어로 소개글, 가격) */
+  --fs-body:    16px;  /* 본문 */
+  --fs-small:   14px;  /* 보조 정보 (장소, 날짜, 탭, 링크) */
+  --fs-caption: 12px;  /* 배지, 태그 — 이보다 작게는 쓰지 않음 */
 }
 
 .img-placeholder { background: #d4d0c8; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.75rem; width: 100%; }
@@ -54,6 +69,8 @@ img { max-width: 100%; display: block; }
 .nav-list__item a:hover,
 .nav-list__item a.active { color: var(--white); border-bottom-color: var(--white); }
 .nav-list__item--toggle a.active-menu { color: var(--white); }
+/* '더 보기 ☰' ↔ '닫기 ✕' 글자 길이가 달라도 버튼 폭은 그대로 → 다른 메뉴가 밀리지 않음 */
+.nav-list__item--toggle a { min-width: 6.8em; text-align: center; }
 .nav-list__item--toggle a,
 .nav-list__item--toggle a:hover,
 .nav-list__item--toggle a.active-menu { border-bottom-color: transparent; }
@@ -362,12 +379,12 @@ img { max-width: 100%; display: block; }
 .restaurant-card__body    { padding: 22px; }
 .restaurant-card__name    { font-family: 'Noto Serif KR', serif; font-size: 1rem; color: var(--text); font-weight: 400; margin-bottom: 4px; }
 .restaurant-card__name-en { font-family: 'Noto Sans KR', sans-serif; font-size: 0.8rem; color: #8a8a8a; letter-spacing: 1px; margin-bottom: 8px; }
-.restaurant-card__location { font-size: 1rem; color: var(--gray); margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.restaurant-card__location { font-size: 1rem; color: #8a8a8a; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 .restaurant-card__desc    { font-size: 1rem; color: var(--text-sub); line-height: 1.8; margin-bottom: 16px; }
 .restaurant-card__hours-list { display: flex; flex-direction: column; }
-.restaurant-card__hours-row  { display: flex; justify-content: space-between; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #f0ede8; }
-.restaurant-card__hours-row dt { color: var(--gray); }
-.restaurant-card__hours-row dd { color: var(--text); font-weight: 500; font-family: 'Montserrat', sans-serif; }
+.restaurant-card__hours-row  { display: flex; justify-content: space-between; gap: 12px; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #f0ede8; }
+.restaurant-card__hours-row dt { color: var(--gray); flex-shrink: 0; }
+.restaurant-card__hours-row dd { color: var(--text); font-weight: 500; font-family: 'Montserrat', sans-serif; text-align: right; }
 .restaurant-card__note  { font-size: 0.8rem; color: #313131; margin-top: 8px; line-height: 1.7; }
 .restaurant-card__phone { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: var(--gray); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
 
@@ -405,6 +422,7 @@ img { max-width: 100%; display: block; }
 .rest-card__info li { display: flex; gap: 12px; font-size: 1rem; padding: 6px 0; border-bottom: 1px solid #f0ede8; color: var(--text-sub); }
 .rest-card__label { color: var(--gray); min-width: 52px; flex-shrink: 0; }
 .rest-card__ok    { color: #3d6b4f; font-weight: 600; }
+.restaurant-card__hours-row dd.rest-card__ok { color: #3d6b4f; font-weight: 600; }
 
 /* ── 오시는 길 ── */
 .access-guide__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; }
@@ -479,42 +497,21 @@ img { max-width: 100%; display: block; }
 
 
 /* =============================================================
-   PC 전용 — 편의시설 카드 텍스트 크기 축소 (min-width: 769px)
-   모바일은 1rem = 14px 로 그대로 유지
-============================================================= */
-@media (min-width: 769px) {
-  .restaurant-card__location { font-size: 16px; }
-  .restaurant-card__desc     { font-size: 16px; }
-  .restaurant-card__hours-row { font-size: 16px; }
-  .cafe-card__name     { font-size: 18px; }
-  .cafe-card__brand    { font-size: 16px; }
-  .cafe-card__desc     { font-size: 16px; }
-  .cafe-card__info-row { font-size: 16px; }
-  .cafe-card__note     { font-size: 14px; }
-  .cafe-card__phone    { font-size: 14px; }
-  .rest-card__desc     { font-size: 16px; }
-  .rest-card__info li  { font-size: 16px; }
-}
-
-
-/* =============================================================
    RESPONSIVE — 태블릿 (max-width: 1024px)
 ============================================================= */
 @media (max-width: 1024px) {
   /* ── 기본 ── */
   html { font-size: 16px; }
-  :root { --header-padding: 24px; --nav-padding-v: 14px; }
+  :root {
+    --header-padding: 24px; --nav-padding-v: 14px;
+    --side-pad: 48px;
+    --fs-hero: 28px; --fs-h2: 26px; --fs-h3-lg: 20px; --fs-h3: 18px;
+    --fs-lead: 16px; --fs-body: 15px; --fs-small: 13px; --fs-caption: 12px;
+  }
 
   /* ── 히어로 ── */
   .hero__info { padding: 40px 40px; gap: 36px; }
   .hero__video-wrap { height: 52vw; }
-  .hero__welcome-title { font-size: 1.5rem; }
-  .hero__welcome-btn { padding: 12px 130px; }
-  .hero__open-badge       { font-size: 13px; }
-  .hero__hours-today-text { font-size: 14px; }
-  .hero__hours-item span  { font-size: 14px; }
-  .hero__access-label     { font-size: 12px; }
-  .hero__access-text      { font-size: 14px; }
 
   /* ── 하이라이트 ── */
   .highlights { padding: 48px 40px 0; }
@@ -523,19 +520,6 @@ img { max-width: 100%; display: block; }
   /* ── 전시 및 행사 ── */
   .exhibition { padding: 48px 40px; }
   .exhi-slider__btn { width: 44px; }
-  .exhi-slide__title { font-size: 1.2rem; }
-  .section-more           { font-size: 14px; }
-  .exhibition__tab        { font-size: 14px; }
-  .exhi-slide__tag        { font-size: 13px; }
-  .exhi-slide__place      { font-size: 14px; }
-  .exhi-slide__date       { font-size: 14px; }
-  .exhi-slide__desc       { font-size: 14px; }
-  .exhi-events-label      { font-size: 14px; }
-  .exhi-event-card__tag   { font-size: 12px; }
-  .exhi-event-card__place { font-size: 13px; }
-  .exhi-event-card__date  { font-size: 13px; }
-  .exhi-event-card__link  { font-size: 13px; }
-  .facility-tab { font-size: 0.85rem; }
 
   /* ── 관람코스 ── */
   .course { padding: 48px 40px; }
@@ -554,14 +538,8 @@ img { max-width: 100%; display: block; }
   .faq { padding: 48px 40px; }
   .floor-content.active { grid-template-columns: 200px 1fr; gap: 28px; }
   .restaurant-grid { grid-template-columns: repeat(2, 1fr); }
-  .restaurant-card:nth-child(3) { grid-column: span 2; }
+  #facRestaurant .restaurant-card:nth-child(3) { grid-column: span 2; }
   .cafe-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* ── 오시는 길 ── */
-  .access-item__row   { font-size: 15px; }
-  .access-item__label { font-size: 13px; }
-  .access-item__value { font-size: 15px; }
-  .access-tip         { font-size: 14px; }
 
   /* ── 푸터 ── */
   .footer-sns,
@@ -574,6 +552,125 @@ img { max-width: 100%; display: block; }
   .mega-menu__inner { padding: 20px var(--header-padding); }
   .mega-menu__main { grid-template-columns: repeat(2,1fr); gap: 16px; }
   .search-bar { padding: 16px 40px; }
+}
+
+
+/* =============================================================
+   PC · 태블릿 공통 (min-width: 769px) — 모바일은 영향 없음
+   ① 좌우 여백 통일(PC 100px / 태블릿 48px)  ② 헤더 높이 축소
+   ③ 영상 높이를 화면 높이 기준으로      ④ 글자 크기 단계 적용
+============================================================= */
+@media (min-width: 769px) {
+
+  /* ── ① 좌우 여백: 모든 영역이 같은 시작선에서 출발 ── */
+  .header-util, .header-nav, .mega-menu__inner, .search-bar,
+  .hero__info, .highlights, .exhibition, .course, .goods,
+  .visit-info, .floor-guide, .facilities, .access-guide, .faq,
+  .footer-sns, .footer-nav, .footer-affiliate, .footer-bottom {
+    padding-left:  var(--gutter);
+    padding-right: var(--gutter);
+  }
+  .header-nav::before { left: var(--gutter); right: var(--gutter); }  /* 헤더 구분선도 같은 폭 */
+
+  /* 금관 카드: 세로로 긴 카드에 꽉 채우면 금관 좌우가 잘림
+     → 사진 전체가 들어오게 축소(contain), 남는 공간은 사진 배경과 같은 검정 */
+  .highlight-card:nth-child(2) { background: #000; }
+  .highlight-card:nth-child(2) .highlight-card__img img { object-fit: contain; object-position: center; }
+
+  /* 한글이 단어 중간에서 줄바꿈되지 않게 ("환영합 / 니다" 방지) */
+  body { word-break: keep-all; }
+
+  /* ── ② 헤더: 2단 유지, 여백·로고·글자만 줄임 (약 188px → 125px) ── */
+  .header-util { padding-top: 12px; padding-bottom: 12px; }
+  .site-logo__kr { font-size: 26px; line-height: 1.3; }
+  .site-logo__en { font-size: 11px; letter-spacing: 3px; line-height: 1.4; margin-top: 2px; }
+  .util-btn { font-size: 15px; }
+  .nav-list__item a { font-size: 15px; padding-top: 12px; padding-bottom: 12px; }
+
+  /* ── ③ 히어로 (태블릿 기준, PC는 아래 1025px 이상 구간에서 덮어씀) ── */
+  .hero__video-wrap { height: clamp(260px, 40vh, 480px); }
+  .hero__info { padding-top: 48px; padding-bottom: 64px; }
+  .hero__right { gap: 20px; }
+  .hero__welcome-sub   { font-size: var(--fs-small); }
+  .hero__welcome-title { font-size: var(--fs-hero); margin-bottom: 20px; }
+  .hero__welcome-desc  { font-size: var(--fs-lead); margin-bottom: 24px; }
+  .hero__welcome-btn   { font-size: var(--fs-body); padding: 14px 24px; align-self: stretch; justify-content: center; max-width: 480px; }
+  .hero__info-label    { font-size: var(--fs-h3-lg); margin-bottom: 10px; }
+  .hero__hours-today   { margin-top: 12px; }
+  .hero__open-badge    { font-size: var(--fs-caption); }
+  .hero__hours-today-text { font-size: var(--fs-body); }
+  .hero__hours-item { padding: 5px 0; }
+  .hero__hours-item, .hero__hours-item span { font-size: var(--fs-small); }
+  .hero__access-label  { font-size: var(--fs-caption); }
+  .hero__access-item { padding: 5px 0; }
+  .hero__access-item, .hero__access-text { font-size: var(--fs-small); }
+
+  /* ── ④ 글자 크기 단계 ── */
+  /* 섹션 제목 */
+  .section-title { font-size: var(--fs-h2); }
+  .section-subtitle, .section-more { font-size: var(--fs-small); }
+
+  /* 큰 카드 제목 */
+  .exhi-slide__title, .course-card__title { font-size: var(--fs-h3-lg); }
+
+  /* 카드 제목 */
+  .highlight-card__name, .exhi-event-card__title,
+  .visit-info__card-title, .visit-sub-card__title, .visit-closure__title, .visit-guidelines__title,
+  .restaurant-card__name, .access-item__title { font-size: var(--fs-h3); }
+
+  /* 강조 본문 */
+  .goods-card__price { font-size: var(--fs-lead); }
+
+  /* 본문 */
+  .exhi-slide__desc, .course-card__desc, .course-card__step-name, .goods-card__name,
+  .visit-info__item, .visit-closure__desc, .visit-closure__label, .visit-closure__dates li,
+  .guideline-item__q, .guideline-item__list li, .floor-room, .facility-card__name, .facility-intro,
+  .restaurant-card__desc, .restaurant-card__hours-row,
+  .access-item__row, .access-item__value, .faq-item__question, .faq-item__answer,
+  .mega-menu__col-title, .footer-sns__title, .footer-nav__title { font-size: var(--fs-body); }
+
+  /* 보조 정보 */
+  .highlight-card__desc, .exhibition__tab, .exhi-slide__place, .exhi-slide__date, .exhi-slide__link,
+  .exhi-events-label, .exhi-event-card__place, .exhi-event-card__date, .exhi-event-card__link,
+  .course-card__time, .visit-info__notice, .visit-closure__note, .floor-tab, .facility-tab,
+  .facility-card__desc, .facility-intro__note,
+  .restaurant-card__location, .restaurant-card__note, .restaurant-card__phone,
+  .access-item__label, .access-tip, .scrollspy-nav__item, .mega-menu__list a,
+  .footer-nav__link, .footer-affiliate__btn, .footer-affiliate__item { font-size: var(--fs-small); }
+
+  /* 배지 · 태그 · 캡션 */
+  .highlight-card__badge, .exhi-slide__tag, .exhi-event-card__tag, .course-card__tag,
+  .course-card__step-badge, .goods-card__cat, .goods-badge, .floor-room__floor,
+  .footer-bottom__copy { font-size: var(--fs-caption); }
+}
+
+
+/* =============================================================
+   PC 전용 (min-width: 1025px) — 첫 화면 구성
+   영상은 화면 높이의 55%로 크게, 안내 영역은 글자·간격을 줄여서 최대한 함께 보이게
+   (안내 영역 아래쪽은 스크롤해서 보는 구조)
+============================================================= */
+@media (min-width: 1025px) {
+  /* 최대값 31vw: 영상 파일 자체에 위아래 검은 띠가 있어서(시작 연출 때 최대 160px)
+     화면 너비에 비해 너무 높게 키우면 띠가 드러남 → 너비의 31%까지만 */
+  .hero__video-wrap { height: clamp(320px, 55vh, min(920px, 31vw)); }
+
+  /* 안내 영역: [환영 문구 | 관람시간 | 오시는 길] 3칸 가로 배치 (태블릿은 세로로 쌓는 배치 유지) */
+  .hero__info { grid-template-columns: 1fr 1px 1fr; gap: 40px; padding-top: 36px; padding-bottom: 64px; align-items: stretch; }
+  .hero__right { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .hero__section-divider { display: none; }          /* 위아래 구분선 대신 */
+  .hero__access { padding-left: 40px; border-left: 1px solid #252535; margin-top: 0; }  /* 세로 구분선 */
+
+  /* 안내 영역 글자·여백 축소 */
+  .hero__welcome-sub   { font-size: 13px; letter-spacing: 4px; margin-bottom: 4px; }
+  .hero__welcome-title { font-size: 28px; line-height: 1.4; margin-bottom: 12px; }
+  .hero__welcome-desc  { font-size: 15px; line-height: 1.8; margin-bottom: 20px; }
+  .hero__welcome-btn   { font-size: 15px; padding: 12px 24px; }
+  .hero__info-label    { font-size: 20px; margin-bottom: 8px; text-underline-offset: 6px; }
+  .hero__hours-today   { margin-top: 8px; margin-bottom: 6px; }
+  .hero__hours-today-text { font-size: 15px; }
+  .hero__hours-item    { padding: 4px 0; }
+  .hero__access-item   { padding: 4px 0; }
 }
 
 
@@ -598,6 +695,11 @@ img { max-width: 100%; display: block; }
   .util-shop span, .util-ticket span { display: none; }
   .util-shop .util-icon,
   .util-ticket .util-icon { width: 22px; height: 22px; }
+  /* 언어 선택: 다른 헤더 버튼처럼 아이콘만 표시 */
+  .lang-wrap .util-btn span,
+  .lang-wrap .util-arrow { display: none; }
+  .lang-wrap .util-icon { width: 22px; height: 22px; }
+  .lang-dropdown { top: 160%; }
   .header-util__left  { flex: 1; }
   .header-util__right { flex: 1; justify-content: flex-end; }
 
@@ -606,7 +708,7 @@ img { max-width: 100%; display: block; }
   .scrollspy-nav__item { padding: 12px 14px; font-size: 13px; }
 
   /* ── 메가메뉴 ── */
-  .mega-menu__search-wrap { display: block; }
+  .mega-menu__search-wrap { display: block; padding-top: 16px; }  /* 검색창 위 여백 (아래와 균형) */
   .mega-menu__inner { padding: 0 var(--header-padding) 16px; }
   .mega-menu__main { grid-template-columns: 1fr; gap: 0; }
   .mega-menu__col { border-bottom: 1px solid #222; }
@@ -713,14 +815,13 @@ img { max-width: 100%; display: block; }
   .facility-tab { padding: 10px 14px; font-size: 16px; letter-spacing: 1px; }
   .access-guide__grid { grid-template-columns: 1fr; }
   .restaurant-grid { grid-template-columns: 1fr; }
-  .restaurant-card:nth-child(3) { grid-column: span 1; }
+  #facRestaurant .restaurant-card:nth-child(3) { grid-column: span 1; }
   .cafe-grid { grid-template-columns: 1fr; }
   .rest-grid { grid-template-columns: 1fr; }
   .rest-card--special { grid-column: span 1; }
 
   /* ── 식당 카드 모바일 강조 ── */
   .restaurant-card__name    { font-size: 1rem; font-weight: 600; color: #111; }
-  .restaurant-card__name-en { font-size: 0.85rem; font-weight: 500; color: #111; }
 
 
   /* ── 오시는 길 ── */

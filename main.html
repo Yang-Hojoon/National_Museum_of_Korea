@@ -43,7 +43,7 @@
           <polyline points="9 18 15 12 9 6"/>
         </svg>
       </button>
-      <div class="lang-wrap util-btn--desktop-only">
+      <div class="lang-wrap">
         <button class="util-btn" aria-label="언어 선택" onclick="toggleLang()">
           <svg class="util-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/>
@@ -817,7 +817,6 @@
           </div>
           <div class="restaurant-card__body">
             <h3 class="restaurant-card__name">푸드코트</h3>
-            <p class="restaurant-card__name-en">Food Court</p>
             <p class="restaurant-card__location">전시관 1층 상품관1 왼편</p>
             <p class="restaurant-card__desc">한식, 중식, 양식, 분식 등 다양한 음식을 맛볼 수 있는 푸드코트입니다.</p>
             <dl class="restaurant-card__hours-list">
@@ -840,7 +839,6 @@
           </div>
           <div class="restaurant-card__body">
             <h3 class="restaurant-card__name">경천사탑 식당 by 두레</h3>
-            <p class="restaurant-card__name-en">Pagoda Restaurant by Doore</p>
             <p class="restaurant-card__location">상설전시관 1층 경천사탑 뒤편</p>
             <p class="restaurant-card__desc">숲 속에 온 듯 탁 트인 전망이 펼쳐지는 한식 위주의 쉼터 같은 식당. 인사동 전통 한정식당 '두레'가 운영합니다.</p>
             <dl class="restaurant-card__hours-list">
@@ -869,7 +867,6 @@
           </div>
           <div class="restaurant-card__body">
             <h3 class="restaurant-card__name">거울못 식당</h3>
-            <p class="restaurant-card__name-en">Mirror Pond Restaurant</p>
             <p class="restaurant-card__location">거울못 옆</p>
             <p class="restaurant-card__desc">샐러드, 피자, 파스타, 스테이크를 즐길 수 있는 이탈리안 레스토랑. 창가석·테라스·독립 룸 공간 운영.</p>
             <dl class="restaurant-card__hours-list">
@@ -895,139 +892,128 @@
         자연과 어우러진 레스토랑과 카페에서 편안한 휴식을 즐길 수 있습니다.
         <span class="facility-intro__note">※ 매장 마감으로 인하여 폐점 15분~1시간 전까지만 주문이 가능할 수 있습니다.</span>
       </p>
-<div class="cafe-grid">
+<div class="restaurant-grid">
 
   <!-- 으뜸홀 카페 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-cafe-euddeum.jpg" alt="으뜸홀 카페">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">으뜸홀 카페</h3>
-      <span class="cafe-card__brand">이디야 커피</span>
-    </div>
-    <p class="cafe-card__location">으뜸홀 2층</p>
-    <p class="cafe-card__desc">남산 전망이 보이는 쾌적한 휴식 공간</p>
-    <span class="cafe-card__badge cafe-card__badge--noto">take-out 불가</span>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:15</span></div>
-      <div class="cafe-card__info-row"><span>수·토</span><span>09:30 ~ 20:15</span></div>
-      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
-      <p class="cafe-card__phone">02-123-4563</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">으뜸홀 카페</h3>
+      <p class="restaurant-card__location">으뜸홀 2층</p>
+      <p class="restaurant-card__desc">남산 전망이 보이는 쾌적한 휴식 공간</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>월·화·목·금·일·공휴일</dt><dd>09:30 ~ 17:15</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수·토</dt><dd>09:30 ~ 20:15</dd></div>
+      </dl>
+      <p class="restaurant-card__note">※ 폐점 15분 전까지 주문 · take-out 불가</p>
+      <p class="restaurant-card__phone">02-123-4563</p>
     </div>
   </article>
 
   <!-- 사유 공간 찻집 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-cafe-sayu.jpg" alt="사유 공간 찻집">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">사유 공간 찻집</h3>
-      <span class="cafe-card__brand">이디야 커피</span>
-    </div>
-    <p class="cafe-card__location">전시관 3층 동쪽</p>
-    <p class="cafe-card__desc">한국의 전통차를 마시며 관람 피로를 회복할 수 있는 아늑한 공간</p>
-    <span class="cafe-card__badge cafe-card__badge--noto">take-out 불가</span>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>매일</span><span>09:30 ~ 16:45</span></div>
-      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
-      <p class="cafe-card__phone">02-123-4564</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">사유 공간 찻집</h3>
+      <p class="restaurant-card__location">전시관 3층 동쪽</p>
+      <p class="restaurant-card__desc">한국의 전통차를 마시며 관람 피로를 회복할 수 있는 아늑한 공간</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>매일</dt><dd>09:30 ~ 16:45</dd></div>
+      </dl>
+      <p class="restaurant-card__note">※ 폐점 15분 전까지 주문 · take-out 불가</p>
+      <p class="restaurant-card__phone">02-123-4564</p>
     </div>
   </article>
 
   <!-- 버금홀 카페 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-cafe-beokgeum.jpg" alt="버금홀 카페">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">버금홀 카페</h3>
-      <span class="cafe-card__brand">이디야 커피</span>
-    </div>
-    <p class="cafe-card__location">서관 문화상품점 옆 · 좌석 없음</p>
-    <p class="cafe-card__desc">향긋한 커피향이 가득한 프리미엄 디저트 카페</p>
-    <span class="cafe-card__badge cafe-card__badge--take">take-out 전문점</span>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:15</span></div>
-      <div class="cafe-card__info-row"><span>수·토</span><span>09:30 ~ 20:15</span></div>
-      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
-      <p class="cafe-card__phone">02-123-4565</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">버금홀 카페</h3>
+      <p class="restaurant-card__location">서관 문화상품점 옆 · 좌석 없음</p>
+      <p class="restaurant-card__desc">향긋한 커피향이 가득한 프리미엄 디저트 카페</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>월·화·목·금·일·공휴일</dt><dd>09:30 ~ 17:15</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수·토</dt><dd>09:30 ~ 20:15</dd></div>
+      </dl>
+      <p class="restaurant-card__note">※ 폐점 15분 전까지 주문 · take-out 전문점</p>
+      <p class="restaurant-card__phone">02-123-4565</p>
     </div>
   </article>
 
   <!-- 용 카페 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-cafe-yong.jpg" alt="용 카페">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">용 카페</h3>
-      <span class="cafe-card__brand">이디야 커피</span>
-    </div>
-    <p class="cafe-card__location">극장 '용' 로비</p>
-    <p class="cafe-card__desc">커피 및 베이커리 테이크아웃 전문점. 공연장 내부 음식물 반입 불가.</p>
-    <span class="cafe-card__badge cafe-card__badge--take">take-out 전문점</span>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>화·목·금·토·일</span><span>09:30 ~ 17:30</span></div>
-      <div class="cafe-card__info-row"><span>수</span><span>12:00 ~ 20:30</span></div>
-      <p class="cafe-card__note">※ 월요일 휴점 · 폐점 30분 전까지 주문</p>
-      <p class="cafe-card__phone">02-123-4566</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">용 카페</h3>
+      <p class="restaurant-card__location">극장 '용' 로비</p>
+      <p class="restaurant-card__desc">커피 및 베이커리 테이크아웃 전문점. 공연장 내부 음식물 반입 불가.</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>화·목·금·토·일</dt><dd>09:30 ~ 17:30</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수</dt><dd>12:00 ~ 20:30</dd></div>
+      </dl>
+      <p class="restaurant-card__note">※ 월요일 휴점 · 폐점 30분 전까지 주문 · take-out 전문점</p>
+      <p class="restaurant-card__phone">02-123-4566</p>
     </div>
   </article>
 
   <!-- 야외 카페 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-cafe-outdoor.jpg" alt="야외 카페">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">야외 카페</h3>
-      <span class="cafe-card__brand">이디야 커피</span>
-    </div>
-    <p class="cafe-card__location">서문 입구 (편의점 오른편)</p>
-    <p class="cafe-card__desc">야외 테라스에서 커피와 프리미엄 디저트를 즐길 수 있습니다.</p>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:15</span></div>
-      <div class="cafe-card__info-row"><span>수·토</span><span>09:30 ~ 20:15</span></div>
-      <p class="cafe-card__note">※ 폐점 15분 전까지 주문</p>
-      <p class="cafe-card__phone">02-123-4567</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">야외 카페</h3>
+      <p class="restaurant-card__location">서문 입구 (편의점 오른편)</p>
+      <p class="restaurant-card__desc">야외 테라스에서 커피와 프리미엄 디저트를 즐길 수 있습니다.</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>월·화·목·금·일·공휴일</dt><dd>09:30 ~ 17:15</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수·토</dt><dd>09:30 ~ 20:15</dd></div>
+      </dl>
+      <p class="restaurant-card__note">※ 폐점 15분 전까지 주문</p>
+      <p class="restaurant-card__phone">02-123-4567</p>
     </div>
   </article>
 
   <!-- 투썸플레이스 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-cafe-twosome.jpg" alt="투썸플레이스">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">투썸플레이스</h3>
-      <span class="cafe-card__brand">TWOSOME PLACE</span>
-    </div>
-    <p class="cafe-card__location">서문 입구 (편의점 오른편)</p>
-    <p class="cafe-card__desc">커피와 프리미엄 디저트를 즐길 수 있습니다.</p>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>월·화·목·금·일·공휴일</span><span>09:30 ~ 17:30</span></div>
-      <div class="cafe-card__info-row"><span>수·토</span><span>10:00 ~ 19:30</span></div>
-      <p class="cafe-card__note">※ 마감 임박 시 일부 메뉴 조기 마감 가능</p>
-      <p class="cafe-card__phone">02-123-4568</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">투썸플레이스</h3>
+      <p class="restaurant-card__location">서문 입구 (편의점 오른편)</p>
+      <p class="restaurant-card__desc">커피와 프리미엄 디저트를 즐길 수 있습니다.</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>월·화·목·금·일·공휴일</dt><dd>09:30 ~ 17:30</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수·토</dt><dd>10:00 ~ 19:30</dd></div>
+      </dl>
+      <p class="restaurant-card__note">※ 마감 임박 시 일부 메뉴 조기 마감 가능</p>
+      <p class="restaurant-card__phone">02-123-4568</p>
     </div>
   </article>
 
   <!-- 편의점 -->
-  <article class="cafe-card">
-    <div class="cafe-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-convenience.jpg" alt="편의점">
     </div>
-    <div class="cafe-card__header">
-      <h3 class="cafe-card__name">편의점</h3>
-      <span class="cafe-card__brand">Convenience Store</span>
-    </div>
-    <p class="cafe-card__location">야외 부속 A동 (박물관 나들길 입구)</p>
-    <p class="cafe-card__desc">박물관 관람 중 긴급히 필요한 생활물품을 구입하실 수 있습니다.</p>
-    <div class="cafe-card__info">
-      <div class="cafe-card__info-row"><span>매일</span><span>08:00 ~ 21:00</span></div>
-      <p class="cafe-card__phone">02-123-4569</p>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">편의점</h3>
+      <p class="restaurant-card__location">야외 부속 A동 (박물관 나들길 입구)</p>
+      <p class="restaurant-card__desc">박물관 관람 중 긴급히 필요한 생활물품을 구입하실 수 있습니다.</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>매일</dt><dd>08:00 ~ 21:00</dd></div>
+      </dl>
+      <p class="restaurant-card__phone">02-123-4569</p>
     </div>
   </article>
 
@@ -1039,75 +1025,85 @@
     <div class="facility-tab-content" id="facRest">
 <div class="rest-grid">
 
-  <!-- 후원광장 -->
-  <article class="rest-card">
-    <div class="rest-card__img">
+  <!-- 후원광장 휴게공간 -->
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-rest-huwon.jpg" alt="후원광장 휴게공간">
     </div>
-    <h3 class="rest-card__name">후원광장 휴게공간</h3>
-    <p class="rest-card__location">열린마당 뒤편 모란못 주변</p>
-    <ul class="rest-card__info">
-      <li><span class="rest-card__label">시설</span><span>파고라 2동 · 야외테이블 20개</span></li>
-      <li><span class="rest-card__label">수용인원</span><span>최대 160명</span></li>
-      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
-    </ul>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">후원광장 휴게공간</h3>
+      <p class="restaurant-card__location">열린마당 뒤편 모란못 주변</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>시설</dt><dd>파고라 2동 · 야외테이블 20개</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수용인원</dt><dd>최대 160명</dd></div>
+        <div class="restaurant-card__hours-row"><dt>식사</dt><dd class="rest-card__ok">가능</dd></div>
+      </dl>
+    </div>
   </article>
 
   <!-- 거울못 휴게공간 -->
-  <article class="rest-card">
-    <div class="rest-card__img">
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-rest-mirror.jpg" alt="거울못 휴게공간">
     </div>
-    <h3 class="rest-card__name">거울못 휴게공간</h3>
-    <p class="rest-card__location">거울못 주변 · 거울못 식당 옥상</p>
-    <ul class="rest-card__info">
-      <li><span class="rest-card__label">시설</span><span>파고라 4동 · 야외테이블 17개, 원형테이블 1개, 연식의자</span></li>
-      <li><span class="rest-card__label">수용인원</span><span>최대 145명</span></li>
-      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
-    </ul>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">거울못 휴게공간</h3>
+      <p class="restaurant-card__location">거울못 주변 · 거울못 식당 옥상</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>시설</dt><dd>파고라 4동 · 야외테이블 17개, 원형테이블 1개, 연식의자</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수용인원</dt><dd>최대 145명</dd></div>
+        <div class="restaurant-card__hours-row"><dt>식사</dt><dd class="rest-card__ok">가능</dd></div>
+      </dl>
+    </div>
   </article>
 
-  <!-- 전시동 동문앞 -->
-  <article class="rest-card">
-    <div class="rest-card__img">
+  <!-- 전시동 동문앞 휴게공간 -->
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-rest-east.jpg" alt="전시동 동문앞 휴게공간">
     </div>
-    <h3 class="rest-card__name">전시동 동문앞 휴게공간</h3>
-    <p class="rest-card__location">출입구 주변</p>
-    <ul class="rest-card__info">
-      <li><span class="rest-card__label">시설</span><span>야외테이블 13개</span></li>
-      <li><span class="rest-card__label">수용인원</span><span>최대 104명</span></li>
-      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
-    </ul>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">전시동 동문앞 휴게공간</h3>
+      <p class="restaurant-card__location">출입구 주변</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>시설</dt><dd>야외테이블 13개</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수용인원</dt><dd>최대 104명</dd></div>
+        <div class="restaurant-card__hours-row"><dt>식사</dt><dd class="rest-card__ok">가능</dd></div>
+      </dl>
+    </div>
   </article>
 
-  <!-- 석조물정원 -->
-  <article class="rest-card">
-    <div class="rest-card__img">
+  <!-- 석조물정원 휴게공간 -->
+  <article class="restaurant-card">
+    <div class="restaurant-card__img">
       <img src="img/facility-rest-sculpture.jpg" alt="석조물정원 휴게공간">
     </div>
-    <h3 class="rest-card__name">석조물정원 휴게공간</h3>
-    <p class="rest-card__location">정문 동쪽 석조물 정원 주변</p>
-    <ul class="rest-card__info">
-      <li><span class="rest-card__label">시설</span><span>파고라 1동 · 야외테이블 24개</span></li>
-      <li><span class="rest-card__label">수용인원</span><span>최대 192명</span></li>
-      <li><span class="rest-card__label">식사</span><span class="rest-card__ok">가능</span></li>
-    </ul>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">석조물정원 휴게공간</h3>
+      <p class="restaurant-card__location">정문 동쪽 석조물 정원 주변</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>시설</dt><dd>파고라 1동 · 야외테이블 24개</dd></div>
+        <div class="restaurant-card__hours-row"><dt>수용인원</dt><dd>최대 192명</dd></div>
+        <div class="restaurant-card__hours-row"><dt>식사</dt><dd class="rest-card__ok">가능</dd></div>
+      </dl>
+    </div>
   </article>
 
   <!-- 다목적실 -->
-  <article class="rest-card rest-card--special">
-    <div class="rest-card__img">
+  <article class="restaurant-card rest-card--special">
+    <div class="restaurant-card__img">
       <img src="img/facility-rest-multipurpose.jpg" alt="다목적실">
     </div>
-    <h3 class="rest-card__name">다목적실</h3>
-    <p class="rest-card__location">교육관 1층</p>
-    <p class="rest-card__desc">초·중·고 학생 단체 및 유치원·어린이집 단체 관람객 도시락 식사 가능</p>
-    <ul class="rest-card__info">
-      <li><span class="rest-card__label">수용인원</span><span>최대 60명</span></li>
-      <li><span class="rest-card__label">운영시간</span><span>월~금 11:00 ~ 14:00 (공휴일·휴관일 제외)</span></li>
-      <li><span class="rest-card__label">이용방법</span><span>선착순 자율 이용 (30분 이내)</span></li>
-    </ul>
+    <div class="restaurant-card__body">
+      <h3 class="restaurant-card__name">다목적실</h3>
+      <p class="restaurant-card__location">교육관 1층</p>
+      <p class="restaurant-card__desc">초·중·고 학생 단체 및 유치원·어린이집 단체 관람객 도시락 식사 가능</p>
+      <dl class="restaurant-card__hours-list">
+        <div class="restaurant-card__hours-row"><dt>수용인원</dt><dd>최대 60명</dd></div>
+        <div class="restaurant-card__hours-row"><dt>운영시간</dt><dd>월~금 11:00 ~ 14:00 (공휴일·휴관일 제외)</dd></div>
+        <div class="restaurant-card__hours-row"><dt>이용방법</dt><dd>선착순 자율 이용 (30분 이내)</dd></div>
+      </dl>
+    </div>
   </article>
 
 </div>

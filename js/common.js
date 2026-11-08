@@ -74,13 +74,10 @@ function switchFloor(btn, targetId) {
 
 /* ── FAQ ── */
 function toggleFaq(btn) {
+  /* 누른 항목만 열고 닫음 (다른 항목은 그대로 둠) */
   const item   = btn.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(el => {
-    el.classList.remove('open');
-    el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
-  });
-  if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  const isOpen = item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
 }
 
 /* ── 소속 박물관 드롭다운 ── */
@@ -187,6 +184,27 @@ function resetSlideTimer() {
 ============================================================= */
 
 let goodsPage = 0;
+let goodsVisible = 0;   /* 지금 한 화면에 보이는 상품 수 (PC 4 / 태블릿 3 / 모바일 2) */
+let goodsAnchor  = 0;   /* 사용자가 마지막으로 넘겨서 본 화면의 첫 상품 번호 (화면 크기가 바뀌어도 유지) */
+
+/* 화면 크기가 바뀔 때: 기억해 둔 첫 상품(goodsAnchor)이 맨 앞에 가장 가깝게 오는 페이지 찾기 */
+function goodsPageForAnchor(visible) {
+  const total      = document.querySelectorAll('.goods-card').length;
+  const totalPages = Math.ceil(total / visible);
+  let page = 0;
+  for (let p = 0; p < totalPages; p++) {
+    const offset = Math.min(p * visible, total - visible);  /* 그 페이지의 첫 상품 번호 */
+    if (offset <= goodsAnchor) page = p;
+  }
+  return page;
+}
+
+/* 사용자가 직접 페이지를 넘겼을 때 첫 상품 번호 기억 */
+function rememberGoodsAnchor() {
+  const total = document.querySelectorAll('.goods-card').length;
+  const visible = getGoodsVisible();
+  goodsAnchor = Math.min(goodsPage * visible, total - visible);
+}
 
 function getGoodsVisible() {
   if (window.innerWidth > 1024) return 4;
@@ -203,12 +221,14 @@ function moveGoods(dir) {
   const total      = document.querySelectorAll('.goods-card').length;
   const totalPages = Math.ceil(total / visible);
   goodsPage = (goodsPage + dir + totalPages) % totalPages;
+  rememberGoodsAnchor();
   slideGoodsTo(goodsPage);
   renderGoodsDots();
 }
 
 function goToGoodsPage(page) {
   goodsPage = page;
+  rememberGoodsAnchor();
   slideGoodsTo(page);
   renderGoodsDots();
 }
@@ -256,17 +276,33 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ── 굿즈 슬라이더 초기화 ── */
   renderGoodsDots();
 
-  /* 화면 크기 바뀌면 굿즈 슬라이더 리셋 */
+  /* 화면 크기·방향이 바뀌어도 보고 있던 상품 페이지 유지
+     한 화면 상품 수가 바뀌면(예: 4개 → 2개) 마지막으로 보던 첫 상품이 맨 앞에 오는 페이지로 맞춤 */
+  goodsVisible = getGoodsVisible();
   window.addEventListener('resize', () => {
-    goodsPage = 0;
-    const track = document.getElementById('goodsTrack');
-    if (track) track.style.transform = 'translateX(0)';
-    renderGoodsDots();
+    const newVisible = getGoodsVisible();
+    if (newVisible !== goodsVisible) {
+      goodsVisible = newVisible;
+      goodsPage    = goodsPageForAnchor(newVisible);
+      renderGoodsDots();
+    }
+    slideGoodsTo(goodsPage);  /* 카드 너비가 바뀌었으니 위치 다시 계산 */
   });
 
   /* ── 헤더 스크롤 숨김/표시 ── */
   let lastScrollY = 0;
   const header = document.getElementById('siteHeader');
+
+  /* ── 헤더 아래 빈 공간(spacer)을 실제 헤더 높이에 맞춤 ──
+     헤더는 position: fixed 라서 그만큼 빈 공간을 둬야 영상이 헤더 뒤에 가려지지 않음.
+     CSS에 고정 숫자로 두면 화면 크기·글꼴에 따라 어긋나므로 JS로 실제 높이를 재서 맞춤 */
+  const headerSpacer = document.querySelector('.header-spacer');
+  function syncHeaderSpacer() {
+    if (headerSpacer) headerSpacer.style.height = header.offsetHeight + 'px';
+  }
+  syncHeaderSpacer();
+  window.addEventListener('resize', syncHeaderSpacer);
+  if (document.fonts) document.fonts.ready.then(syncHeaderSpacer);  /* 웹폰트 로딩 후 높이가 바뀔 수 있어 한 번 더 */
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
@@ -379,16 +415,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* ── 관람 유의사항 아코디언 ── */
 function toggleGuideline(btn) {
+  /* 누른 항목만 열고 닫음 (다른 항목은 그대로 둠) */
   const item   = btn.closest('.guideline-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.guideline-item').forEach(el => {
-    el.classList.remove('open');
-    el.querySelector('.guideline-item__q').setAttribute('aria-expanded', 'false');
-  });
-  if (!isOpen) {
-    item.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-  }
+  const isOpen = item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
 }
 
 /* ── 편의시설 탭 전환 ── */
