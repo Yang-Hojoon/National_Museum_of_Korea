@@ -2,6 +2,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 20px; background: #000; }
 body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: var(--text); line-height: 1.6; overscroll-behavior: none; }
+
+/* ── 스크롤바: 헤더·히어로가 검정이라 브라우저 기본(흰색) 스크롤바가 튀어 보임 → 어둡게 ── */
+/* 표준 방식: 크롬 121+, 파이어폭스, 엣지 (막대 색, 바탕 색) */
+html { scrollbar-color: #555 #0a0a0a; }
+/* 사파리 등 웹킷 브라우저용 (scrollbar-color를 지원하는 크롬에서는 위 설정이 우선) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 5px; border: 2px solid #0a0a0a; }  /* 테두리로 막대를 살짝 가늘어 보이게 */
+::-webkit-scrollbar-thumb:hover { background: #777; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; outline: none; }
