@@ -19,7 +19,7 @@ img { max-width: 100%; display: block; }
   --amber:          #8b7535;
   --silver:         #d6d6d6;
   --border:         #e8e5df;
-  --header-padding:  24px;
+  --header-padding:  40px;
   --nav-padding-v:   20px;
   --section-padding: 80px;
 
@@ -667,8 +667,9 @@ img { max-width: 100%; display: block; }
   .hero__welcome-title { font-size: 28px; line-height: 1.4; margin-bottom: 12px; }
   .hero__welcome-desc  { font-size: 15px; line-height: 1.8; margin-bottom: 36px; }
   .hero__welcome-btn   { font-size: 15px; padding: 12px 24px; }
-  .hero__info-label    { font-size: 20px; margin-bottom: 8px; text-underline-offset: 6px; }
-  .hero__hours-today   { margin-top: 8px; margin-bottom: 6px; }
+  /* 라벨은 <a>(인라인)라서 margin-bottom이 안 먹힘 → inline-block으로 바꿔야 아래 간격이 생김 */
+  .hero__info-label    { display: inline-block; font-size: 20px; margin-bottom: 18px; text-underline-offset: 6px; }
+  .hero__hours-today   { margin-top: 0; margin-bottom: 6px; }
   .hero__hours-today-text { font-size: 15px; }
   .hero__hours-item    { padding: 7px 0; }
   .hero__access-item   { padding: 7px 0; }
