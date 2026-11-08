@@ -673,6 +673,10 @@ img { max-width: 100%; display: block; }
 
   /* 안내 영역: [환영 문구 | 관람시간 | 오시는 길] 3칸 가로 배치 (태블릿은 세로로 쌓는 배치 유지) */
   .hero__info { grid-template-columns: 1fr 1px 1fr; gap: 40px; padding-top: 36px; padding-bottom: 88px; align-items: stretch; }
+  /* 안내 영역만 좌우 여백을 더 줘서 [환영 | 관람시간 | 오시는 길] 사이 빈 공간을 줄임
+     화면 절반 - 600px (최소 80px ~ 최대 200px)
+     → 1366px 이하 노트북: 80px 그대로(환영 문구가 두 줄로 꺾이지 않게) / 1470px: 135px / 1920px 이상: 200px */
+  .hero__info { padding-left: clamp(80px, calc(50vw - 600px), 200px); padding-right: clamp(80px, calc(50vw - 600px), 200px); }
   .hero__right { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
   .hero__section-divider { display: none; }          /* 위아래 구분선 대신 */
   .hero__access { padding-left: 40px; border-left: 1px solid #252535; margin-top: 0; }  /* 세로 구분선 */
