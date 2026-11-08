@@ -672,7 +672,7 @@ img { max-width: 100%; display: block; }
   .hero__video-wrap { height: clamp(320px, 55vh, min(920px, 31vw)); }
 
   /* 안내 영역: [환영 문구 | 관람시간 | 오시는 길] 3칸 가로 배치 (태블릿은 세로로 쌓는 배치 유지) */
-  .hero__info { grid-template-columns: 1fr 1px 1fr; gap: 40px; padding-top: 36px; padding-bottom: 120px; align-items: stretch; }  /* 88 → 120: 하이라이트로 넘어가기 전 검정 여백 */
+  .hero__info { grid-template-columns: 1fr 1px 1fr; gap: 40px; padding-top: 36px; padding-bottom: 88px; align-items: stretch; }
   .hero__right { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
   .hero__section-divider { display: none; }          /* 위아래 구분선 대신 */
   .hero__access { padding-left: 40px; border-left: 1px solid #252535; margin-top: 0; }  /* 세로 구분선 */
