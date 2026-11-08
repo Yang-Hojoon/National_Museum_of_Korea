@@ -98,7 +98,7 @@ img { max-width: 100%; display: block; }
 .mega-menu__search-btn svg { width: 18px; height: 18px; }
 .mega-menu__search-btn:hover { color: var(--white); }
 
-.header-spacer { height: 96px; }
+.header-spacer { height: 96px; background: var(--dark); }  /* 헤더 높이가 소수점(73.6px 등)이라 생기는 1px 미만 틈에 흰 body가 비치지 않게 */
 
 /* ===== SECTION COMMON ===== */
 .section-title { font-family: 'Noto Serif KR', serif; font-size: 1.625rem; font-weight: 400; letter-spacing: 1px; color: var(--text); }
@@ -741,6 +741,8 @@ img { max-width: 100%; display: block; }
 
   /* ── 히어로 ── */
   .hero__video-wrap { height: 80vw; }
+  /* 영상 파일 자체에 위(33px)·아래(36px) 검은 띠가 있음 → 12% 확대해서 띠를 화면 밖으로 밀어냄 */
+  .hero__video-wrap video { transform: scale(1.12); }
   .hero__tabs { display: flex; border-bottom: 1px solid #222; margin-bottom: 16px; }
   .hero__section-divider { display: none; }
   .hero__hours-wrap, .hero__access { display: none; }
