@@ -150,7 +150,8 @@ img { max-width: 100%; display: block; }
      → 제목·카드가 놓이는 본문 배경색은 그대로 #0a0a0a */
   --hl-top: 128px;   /* PC: 80px → 128px (그라데이션 들어갈 공간만큼 늘림) */
   padding: var(--hl-top) 170px 0;
-  background: linear-gradient(to bottom, #000 0, #0a0a0a var(--hl-top));
+  /* 중간 단계를 여러 개 둬서 시작은 천천히, 끝은 부드럽게 → 경계가 덜 느껴짐 */
+  background: linear-gradient(to bottom, #000 0, #010101 calc(var(--hl-top) * 0.3), #050505 calc(var(--hl-top) * 0.6), #0a0a0a var(--hl-top));
   position: relative;
 }
 /* 하이라이트는 섹션 전체가 투명 → 불투명으로 나타나면서
@@ -671,7 +672,7 @@ img { max-width: 100%; display: block; }
   .hero__video-wrap { height: clamp(320px, 55vh, min(920px, 31vw)); }
 
   /* 안내 영역: [환영 문구 | 관람시간 | 오시는 길] 3칸 가로 배치 (태블릿은 세로로 쌓는 배치 유지) */
-  .hero__info { grid-template-columns: 1fr 1px 1fr; gap: 40px; padding-top: 36px; padding-bottom: 88px; align-items: stretch; }
+  .hero__info { grid-template-columns: 1fr 1px 1fr; gap: 40px; padding-top: 36px; padding-bottom: 120px; align-items: stretch; }  /* 88 → 120: 하이라이트로 넘어가기 전 검정 여백 */
   .hero__right { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
   .hero__section-divider { display: none; }          /* 위아래 구분선 대신 */
   .hero__access { padding-left: 40px; border-left: 1px solid #252535; margin-top: 0; }  /* 세로 구분선 */
