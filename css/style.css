@@ -144,7 +144,21 @@ img { max-width: 100%; display: block; }
 .scrollspy-nav__item.active { color: var(--white); border-bottom-color: var(--white); }
 
 /* ===== SECTION 2: 하이라이트 ===== */
-.highlights { padding: var(--section-padding) 170px 0; background: #0a0a0a; position: relative; }
+.highlights {
+  /* 히어로(#000)와 하이라이트(#0a0a0a)를 자연스럽게 잇기:
+     위쪽 여백(--hl-top) 안에서만 #000 → #0a0a0a 그라데이션
+     → 제목·카드가 놓이는 본문 배경색은 그대로 #0a0a0a */
+  --hl-top: 128px;   /* PC: 80px → 128px (그라데이션 들어갈 공간만큼 늘림) */
+  padding: var(--hl-top) 170px 0;
+  background: linear-gradient(to bottom, #000 0, #0a0a0a var(--hl-top));
+  position: relative;
+}
+/* 하이라이트는 섹션 전체가 투명 → 불투명으로 나타나면서
+   그 사이 흰 body 배경이 비쳐 히어로와 사이에 흰 띠가 생김
+   → 섹션 배경은 처음부터 보이게 두고, 안의 내용만 나타나게 함 */
+.highlights.fade-in { opacity: 1; transform: none; }
+.highlights.fade-in > * { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.highlights.fade-in.visible > * { opacity: 1; transform: translateY(0); }
 .highlights .section-title    { color: var(--white); }
 .highlights .section-subtitle { color: var(--gray); }
 .highlights__grid {
@@ -514,7 +528,7 @@ img { max-width: 100%; display: block; }
   .hero__video-wrap { height: 52vw; }
 
   /* ── 하이라이트 ── */
-  .highlights { padding: 48px 40px 0; }
+  .highlights { --hl-top: 80px; padding: var(--hl-top) 40px 0; }  /* 태블릿: 48px → 80px */
   .highlights__grid { grid-template-rows: 290px 290px 300px 320px; gap: 50px; }
 
   /* ── 전시 및 행사 ── */
@@ -744,7 +758,7 @@ img { max-width: 100%; display: block; }
   .hero__access-text      { font-size: 13px; }
 
   /* ── 하이라이트 ── */
-  .highlights { padding: 40px 16px 0; }
+  .highlights { --hl-top: 64px; padding: var(--hl-top) 16px 0; }  /* 모바일: 40px → 64px */
   .highlights__grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: none; gap: 12px; }
   .highlight-card:nth-child(5),
   .highlight-card:nth-child(6),
