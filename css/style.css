@@ -98,7 +98,10 @@ img { max-width: 100%; display: block; }
 .mega-menu { position: fixed; top: 0; left: 0; right: 0; height: auto; background: rgba(19,19,19,0.97); z-index: 999; transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
 .mega-menu.open { transform: translateY(0); }
 .mega-menu__inner { padding: 48px var(--header-padding); }
-.mega-menu__main { display: grid; grid-template-columns: repeat(4,1fr); gap: 40px; }
+.mega-menu__main { display: grid; grid-template-columns: repeat(6,1fr); gap: 32px; }  /* 그룹 6개(관련 사이트 포함) 한 줄 */
+/* 1025~1279px: 6칸은 좁아서 메뉴 이름이 꺾임 → 3칸 × 2줄 */
+@media (min-width: 1025px) and (max-width: 1279px) { .mega-menu__main { grid-template-columns: repeat(3,1fr); } }
+.ext-icon { font-size: 0.85em; opacity: 0.7; margin-left: 2px; }  /* 외부 사이트(새 창) 표시 */
 .mega-menu__col-title { color: var(--white); font-size: 1rem; letter-spacing: 2px; font-weight: 600; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #444444; }
 .mega-menu__col-arrow { display: none; font-style: normal; transition: transform 0.3s ease; color: #666; font-size: 1rem; }
 .mega-menu__list li { padding: 3px 0; }
@@ -579,7 +582,7 @@ img { max-width: 100%; display: block; }
 
   /* ── 메가메뉴 / 검색바 ── */
   .mega-menu__inner { padding: 20px var(--header-padding); }
-  .mega-menu__main { grid-template-columns: repeat(2,1fr); gap: 16px; }
+  .mega-menu__main { grid-template-columns: repeat(3,1fr); gap: 16px 24px; }  /* 그룹 6개 → 3칸 × 2줄 */
   .search-bar { padding: 16px 40px; }
 }
 

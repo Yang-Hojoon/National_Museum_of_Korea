@@ -91,11 +91,14 @@
   </div>
   <nav class="header-nav" aria-label="주요 메뉴">
     <ul class="nav-list" role="menubar">
+      <!-- 상단 메뉴 = '더 보기' 전체메뉴 중 자주 찾는 메뉴의 바로가기 (이름은 전체메뉴와 똑같이) -->
       <li class="nav-list__item" role="none"><a href="#" role="menuitem">관람안내</a></li>
-      <li class="nav-list__item" role="none"><a href="#" role="menuitem">전시 및 행사</a></li>
-      <li class="nav-list__item" role="none"><a href="#" role="menuitem">박물관 이야기</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">전시 · 행사</a></li>
       <li class="nav-list__item" role="none"><a href="#" role="menuitem">교육</a></li>
-      <li class="nav-list__item" role="none"><a href="#" role="menuitem">어린이 박물관</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">소장품 · 학술</a></li>
+      <li class="nav-list__item" role="none"><a href="#" role="menuitem">박물관 이야기</a></li>
+      <!-- 어린이박물관은 별도 사이트 → 새 창으로 열고 ↗ 표시 -->
+      <li class="nav-list__item" role="none"><a href="https://www.museum.go.kr/site/child/home" target="_blank" rel="noopener noreferrer" title="어린이박물관 (새 창)" role="menuitem">어린이박물관 <span class="ext-icon" aria-hidden="true">↗</span></a></li>
       <li class="nav-list__item nav-list__item--toggle" role="none">
         <a href="#" id="menuToggle" role="menuitem" onclick="toggleMegaMenu(); return false;">더 보기 ☰</a>
       </li>
@@ -130,33 +133,45 @@
       </div>
     </div>
     <div class="mega-menu__main">
+      <!-- 전체메뉴 = 사이트 전체 구조 -->
       <div class="mega-menu__col">
-        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">관람 <span class="mega-menu__col-arrow">›</span></p>
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">관람안내 <span class="mega-menu__col-arrow">›</span></p>
         <ul class="mega-menu__list">
           <li><a href="#">관람안내</a></li><li><a href="#">전시해설 · 예약하기</a></li>
           <li><a href="#">관람 · 편의시설</a></li><li><a href="#">접근성 안내</a></li><li><a href="#">오시는 길</a></li>
         </ul>
       </div>
       <div class="mega-menu__col">
-        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">전시 · 소장품 <span class="mega-menu__col-arrow">›</span></p>
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">전시 · 행사 <span class="mega-menu__col-arrow">›</span></p>
         <ul class="mega-menu__list">
           <li><a href="#">상설전시</a></li><li><a href="#">특별전시</a></li>
-          <li><a href="#">디지털 실감 영상관</a></li><li><a href="#">온라인 전시관</a></li><li><a href="#">소장품</a></li>
+          <li><a href="#">디지털 실감 영상관</a></li><li><a href="#">온라인 전시관</a></li><li><a href="#">공연 · 문화행사</a></li>
         </ul>
       </div>
       <div class="mega-menu__col">
-        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">교육 · 행사 <span class="mega-menu__col-arrow">›</span></p>
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">교육 <span class="mega-menu__col-arrow">›</span></p>
         <ul class="mega-menu__list">
-          <li><a href="#">교육 프로그램</a></li><li><a href="#">전문교육</a></li>
-          <li><a href="#">공연 · 문화행사</a></li><li><a href="#">어린이 박물관</a></li>
+          <li><a href="#">일반교육</a></li><li><a href="#">전문교육</a></li>
         </ul>
       </div>
       <div class="mega-menu__col">
-        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">박물관 안내 <span class="mega-menu__col-arrow">›</span></p>
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">소장품 · 학술 <span class="mega-menu__col-arrow">›</span></p>
         <ul class="mega-menu__list">
-          <li><a href="#">박물관 소개</a></li><li><a href="#">박물관 소식</a></li>
-          <li><a href="#">공지사항</a></li><li><a href="#">학술행사</a></li>
-          <li><a href="#">정기간행물</a></li><li><a href="#">도서관</a></li>
+          <li><a href="#">소장품</a></li><li><a href="#">소장품 이용 · 대여 신청</a></li>
+          <li><a href="#">학술행사</a></li><li><a href="#">정기간행물</a></li><li><a href="#">도서관</a></li>
+        </ul>
+      </div>
+      <div class="mega-menu__col">
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">박물관 이야기 <span class="mega-menu__col-arrow">›</span></p>
+        <ul class="mega-menu__list">
+          <li><a href="#">박물관 소개</a></li><li><a href="#">유물 보존 · 관리</a></li>
+          <li><a href="#">박물관 소식</a></li><li><a href="#">공지사항</a></li>
+        </ul>
+      </div>
+      <div class="mega-menu__col">
+        <p class="mega-menu__col-title" onclick="toggleMegaCol(this)">관련 사이트 <span class="mega-menu__col-arrow">›</span></p>
+        <ul class="mega-menu__list">
+          <li><a href="https://www.museum.go.kr/site/child/home" target="_blank" rel="noopener noreferrer" title="어린이박물관 (새 창)">어린이박물관 <span class="ext-icon" aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
     </div>
@@ -1191,9 +1206,9 @@
 
 <nav class="bottom-nav">
   <a href="#" class="bottom-nav__item">관람안내</a>
-  <a href="#" class="bottom-nav__item">전시·행사</a>
+  <a href="#" class="bottom-nav__item">전시 · 행사</a>
   <a href="#" class="bottom-nav__item">교육</a>
-  <a href="#" class="bottom-nav__item">어린이 박물관</a>
+  <a href="#" class="bottom-nav__item">소장품</a>
 </nav>
 
 <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="맨 위로">
